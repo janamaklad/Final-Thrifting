@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../Public/Css/category.css">
+    <link rel="icon" href="../favicon.png" type="image/png">
+    <title>Second Chance</title>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="Thrifting.html" class="logo">
+            <img src="../Images/logo.jpg" width="125px">
+        </a>
+        
+        <div class="icons">
+            <a href="#profile"><i class="far fa-user"></i></a>
+            <a href="#Cart"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#favorites"><i class="fas fa-heart"></i></a>
+            <a href="search.html"><i class="fa fa-filter"></i>
+        </div>
+        
+        <div class="search-bar">
+            <form action="#">
+                <input type="search" placeholder="Search..." name="search">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        <div class="categories">
+            <a href="#" class="category" data-category="women">Women</a>
+            <a href="#" class="category" data-category="men">Men</a>
+            <a href="#" class="category" data-category="girls">Girls</a>
+            <a href="#" class="category" data-category="boys">Boys</a>
+            <a href="#" class="category" data-category="baby">Baby</a>
+            <a href="#" class="category" data-category="home">Home</a> 
+        </div>
+        </div>
+            
+        <div class="parent-container">
+        <div class="selected-category">
+            <video width="100%" autoplay loop muted id="selected-category-video">
+                <source src="default-video.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div id="subcategories">
+
+
+        </div>
+        </div>
+
+        <div class="landscape-rec defaultlandscape"> 
+            <img id="landscape-image" src="" alt="landscape image">
+        </div>
+
+<script src="../Public/Js/categories.js"></script>
+</body>
+</html>

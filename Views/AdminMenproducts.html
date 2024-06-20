@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../Public/Css/AdminCategory.css">
+    <link rel="stylesheet" href="../Public/Css/AdminProducts.css">
+    <title>Men Products</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="admin.html" class="logo">
+            <img src="../Images/logo.jpg" width="125px">
+        </a>
+        
+        <div class="search-bar">
+            <form action="#">
+                <input type="search" placeholder="Search..." name="search">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        <div class="categories">
+            <a href="AdminWomen.html" class="category">Women</a>
+            <a href="AdminMen.html" class="category">Men</a>
+            <a href="AdminGirls.html" class="category">Girls</a>
+            <a href="AdminBoys.html" class="category">Boys</a>
+            <a href="AdminBaby.html" class="category active">Baby</a>
+            <a href="AdminHome.html" class="category">Home</a>
+        </div>
+        </div>
+
+    <div id="products-container" >
+        <div class="product" data-category="bottoms">
+            <img src="../Images/Bershka checkered pants.png" alt="Checkered Pants">
+            <div class="product-details">
+                <h2>Checkered Pants</h2>
+                <p>Price: 688 LE</p>
+                <p>Brand: Bershka</p>
+                <p>Size: 38 EUR </p>
+                <button onclick="addToCartOrRemove('../Images/Bershka checkered pants.png', 'Checkered Pants', '688 LE', 'Bershka', '38 EUR')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/Bershka checkered pants.png', ['../Images/Bershka checkered pants.png', '../Images/bershka2.png'], 'Checkered Pants', '688 LE', 'Bershka', '38 EUR')">Edit</button>
+            </div>
+        </div>
+
+        <div class="product" data-category="bottoms">
+            <img src="../Images/Decked out Joggers.png" alt="Gray Denim">
+            <div class="product-details">
+                <h2>Gray Denim</h2>
+                <p>Price: 900 LE</p>
+                <p>Brand: Decked Out</p>
+                <p>Size: Small </p>
+                <button onclick="addToCartOrRemove('../Images/Decked out Joggers.png', 'Gray Denim', '900 LE', 'Decked Out', 'Small')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/Decked out Joggers.png', ['../Images/Decked out Joggers.png', '../Images/decked2.png'], 'Gray Denim', '900 LE', 'Decked Out', 'Small')">Edit</button>
+            </div>
+        </div>
+
+        <div class="product" data-category="bags">
+            <img src="../Images/iys tote bag.png" alt="Brown Tote Bag">
+            <div class="product-details">
+                <h2>Brown Tote Bag</h2>
+                <p>Price: 250 LE</p>
+                <p>Brand: In Your Shoe</p>
+                <button onclick="addToCartOrRemove('../Images/iys tote bag.png', 'Brown Tote Bag', '250 LE', 'In Your Shoe')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/iys tote bag.png', ['../Images/iys tote bag.png', '../Images/iys2.png'], 'Brown Tote Bag', '250 LE', 'In Your Shoe')">Edit</button>
+            </div>
+        </div>
+
+        <div class="product" data-category="bags">
+            <img src="../Images/kanken bag.png" alt="Kanken Bag">
+            <div class="product-details">
+                <h2>Kanken Bag</h2>
+                <p>Price: 530 LE</p>
+                <p>Brand: Fjallraven</p>
+                <button onclick="addToCartOrRemove('../Images/kanken bag.png', 'Kanken Bag', '530 LE', 'Fjallraven')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/kanken bag.png', ['../Images/kanken bag.png'], 'Kanken Bag', '530 LE', 'Fjallraven')">Edit</button>
+            </div>
+        </div>
+        <div class="product" data-category="tops" >
+            <img src="../Images/wool vest.png" >
+            <div class="product-details">
+                <h2>wool vest</h2>
+                <p>Price: 1250LE</p>
+                <p>Brand: chateau</p>
+                <p>Size: large </p>
+                <button onclick="removeProduct('../Images/wool vest.png', ['../Images/wool vest.png'], 'wool vest', '1250 LE', 'chateau','large')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/wool vest.png', ['../Images/wool vest.png'], 'wool vest', '1250 LE', 'chateau','large')">Edit</button>
+            </div>
+        </div>
+        <div class="product" data-category="tops" >
+            <img src="../Images/tru shirt.png" >
+            <div class="product-details">
+                <h2>tru shirt</h2>
+                <p>Price: 528</p>
+                <p>Brand: LcWakiki</p>
+                <p>Size: large </p>
+                <button onclick="removeProduct('../Images/tru shirt.png', ['../Images/tru shirt.png', '../Images/tru shirt.png'], 'tru shirt', '528 LE', 'LcWakiki','large')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/tru shirt.png', ['../Images/tru shirt.png', '../Images/tru shirt.png'], 'tru shirt', '528 LE', 'LcWakiki','large')">Edit</button>
+    
+    
+                
+            </div>
+        </div>
+        <div class="product" data-category="jackets">
+            <img src="../Images/the north face.png" >
+            <div class="product-details">
+                <h2>blue Jacket</h2>
+                <p>Price: 1,250 LE</p>
+                <p>Brand:North Face</p>
+                <p>Size: Medium/Large </p>
+                <button onclick="removeProduct('../Images/the north face.png', ['../Images/the north face.png', '../Images/the north face.png', '../Images/the north face.png'], 'blue Jacket', '1,250 LE', 'North Face','Medium/Large')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/the north face.png', ['../Images/the north face.png', '../Images/the north face.png', '../Images/the north face.png'], 'blue Jacket', '1,250 LE', 'North Face','Medium/Large')">Edit</button>
+            </div>
+        </div>
+    
+    
+        <div class="product" data-category="jackets">
+            <img src="../Images/ck vest.png" >
+            <div class="product-details">
+                <h2>blue vest</h2>
+                <p>Price: 3,375 LE</p>
+                <p>Brand:calvin klein</p>
+                <p>Size: XLarge </p>
+                <button onclick="removeProduct('../Images/ck vest.png', ['../Images/ck vest.png', '../Images/ck vest.png'], 'Blue vest', '3,375 LE', 'calvin klein','XLarge')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/ck vest.png', ['../Images/ck vest.png', '../Images/ck vest.png'], 'Blue vest', '3,375 LE', 'calvin klein','XLarge')">Edit</button>
+            </div>
+        </div>
+        <div class="product" data-category="sports">
+            <img src="../Images/Nike Joggers.png" >
+            <div class="product-details">
+                <h2>nike Joggers</h2>
+                <p>Price: 875 LE</p>
+                <p>Brand:Nike</p>
+                <p>Size: Medium/Large </p>
+                <button onclick="removeProduct('../Images/Nike Joggers.png', ['../Images/Nike Joggers.png', '../Images/jogg2.png'], '875 LE', 'Nike','Medium/Large')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/Nike Joggers.png', ['../Images/Nike Joggers.png', '../Images/jogg2.png'], '875 LE', 'Nike','Medium/Large')">Edit</button>
+            </div>
+        </div>
+    
+        <div class="product" data-category="sports">
+            <img src="../Images/adidas squadra.png" >
+            <div class="product-details">
+                <h2>red t.shirt</h2>
+                <p>Price: 581 LE</p>
+                <p>Brand:Adidas</p>
+                <p>Size: Large </p>
+                <button onclick="removeProduct('../Images/adidas squadra.png', ['../Images/adidas squadra.png ', '../Images/squad2.png'], 'red t.shirt', '581 LE', 'Adidas','Large')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/adidas squadra.png', ['../Images/adidas squadra.png ', '../Images/squad2.png'], 'red t.shirt', '581 LE', 'Adidas','Large')">Edit</button>
+            </div>
+        </div>
+        <div class="product" data-category="shoes" >
+            <img src="../Images/new vans.png" >
+            <div class="product-details">
+                <h2>black sneakers</h2>
+                <p>Price: 2,500 LE</p>
+                <p>Brand:Vans </p>
+                <p>Size: 44.5 </p>
+                <button onclick="removeProduct('../Images/new vans.png', ['../Images/new vans.png',  '../Images/vans2.png'], 'new vans', '2,500 LE', 'black sneakers','44.5')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/new vans.png', ['../Images/new vans.png',  '../Images/vans2.png'], 'new vans', '2,500 LE', 'black sneakers','44.5')">Edit</button>
+            </div>
+        </div>
+    
+        <div class="product" data-category="shoes" >
+            <img src="../Images/air jordan.png" >
+            <div class="product-details">
+                <h2> air jordan</h2>
+                <p>Price: 4,375 LE</p>
+                <p>Brand:Nike </p>
+                <p>Size: 42.5 </p>
+                <button onclick="removeProduct('../Images/air jordan.png', ['../Images/air jordan.png', '../Images/jordan2.png'], 'air jordan', '4,375 LE', 'Nike','42.5')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/air jordan.png', ['../Images/air jordan.png', '../Images/jordan2.png'], 'air jordan', '4,375 LE', 'Nike','42.5')">Edit</button>
+            </div>
+        </div>
+        <div class="product" data-category="accessories" >
+            <img src="../Images/lc wakiki bucket hat.png">
+            <div class="product-details">
+                <h2>  bucket hat</h2>
+                <p>Price:94 LE</p>
+                <p>Brand:lc waikiki</p>
+                <button onclick="removeProduct('../Images/lc wakiki bucket hat.png', ['../Images/lc wakiki bucket hat.png','../Images/lc2.png'], ' lc wakiki bucket hat', '94 LE', 'lc waikiki')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/lc wakiki bucket hat.png', ['../Images/lc wakiki bucket hat.png','../Images/lc2.png'], ' lc wakiki bucket hat', '94 LE', 'lc waikiki')">Edit</button>
+            </div>
+        </div>
+    
+        <div class="product" data-category="accessories" >
+            <img src="../Images/Ted baker cap.png" >
+            <div class="product-details">
+                <h2> white cap</h2>
+                <p>Price: 699 LE</p>
+                <p>Brand:Ted baker</p>
+                <button onclick="removeProduct('../Images/Ted baker cap.png', ['../Images/Ted baker cap.png'], 'white cap', '699 LE', 'Ted baker')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/Ted baker cap.png', ['../Images/Ted baker cap.png'], 'white cap', '699 LE', 'Ted baker')">Edit</button>
+            </div>
+        </div>
+    
+    
+    </div>
+
+    <div id="modal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-images">
+                <img id="modal-img" src="" alt="">
+                <div class="thumbnails" id="thumbnails"></div>
+            </div>
+            <div class="product-info">
+                <h2 id="modal-title"></h2>
+                <p id="modal-price"></p>
+                <p id="modal-brand"></p>
+                <p id="modal-size"></p>
+            </div>
+            <div class="arrow-container">
+                <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+                <button class="next" onclick="changeImage(1)">&#10095;</button>
+            </div>
+        </div>
+        
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditModal()">&times;</span>
+            <h2>Edit Product</h2>
+            <form id="editForm">
+                <label for="edit-price">Price:</label>
+                <input type="number" id="edit-price" name="edit-price" required>
+    
+                <label for="edit-size">Size:</label>
+                <select id="edit-size" name="edit-size">
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                </select>
+
+                <button id="saveButton" type="button" onclick="submitEdit()">Save</button>
+            </form>
+        </div>
+        
+    </div>
+
+    <script src="../Public/Js/remove.js"></script>
+    <script src="../Public/Js/products.js"></script>
+    <script>
+        // Simulating admin login state
+        let isAdminLoggedIn = true; // Set to true to simulate admin logged in
+
+        function addToCartOrRemove(image, title, price, brand, size) {
+    if (isAdminLoggedIn) {
+        // Show confirmation message
+        removeProductConfirmation();
+        
+        // Remove the product from the page
+        console.log("Product removed:", title);
+        // Here you can implement the logic to actually remove the product
+    } else {
+        // Perform add to cart action
+        console.log("Product added to cart:", title);
+        // Here you can implement the logic to add the product to cart
+    }
+}
+
+
+       
+    </script>
+    
+</body>
+</html>

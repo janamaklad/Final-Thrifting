@@ -1,0 +1,58 @@
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: white;
+    background-size: cover; 
+    background-position: center;
+}
+.addOrderForm {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.addOrderForm label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.addOrderForm input[type="text"],
+.addOrderForm select {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.addOrderForm button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.addOrderForm button:hover {
+    background-color: #555;
+}
+.error {
+    border-color: red;
+}
+h2{
+    align-items: center;
+}
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    text-align: center;
+}

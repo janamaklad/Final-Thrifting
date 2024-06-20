@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Orders</title>
+    <link rel="stylesheet" href="../Public/Css/viewOrders.css">
+</head>
+<body>
+    <div class="order">
+        <div class="order-details">
+            <p><strong>Order ID:</strong> #4322</p>
+            <p><strong>Purchase Date:</strong> May 5, 2024</p>
+        </div>
+        <div class="product">
+            <img src="../Images/splitSkirt.jpeg" alt="Product Image">
+            <div class="product-details">
+                <p><strong>Adjustable Split Skirt</strong></p>
+                <p><strong>Price:</strong> 440</p>
+                <p><strong>Size:</strong> Fits S,M</p>
+                <p><strong>Brand:</strong> SHEIN</p>
+                <form action="updateStatus.php" method="POST">
+                    <input type="hidden" name="order_id" value="4322"> <!-- Hidden input to pass order ID -->
+                    <label for="status">Status:</label>
+                    <select name="status" id="status">
+                        <option value="Processing">Processing</option>
+                        <option value="Shipped">Shipped</option>
+                        <option value="Delivered">Delivered</option>
+                    </select>
+                    <input type="submit" value="Update Status">
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="order">
+        <div class="order-details">
+            <p><strong>Order ID:</strong> #4321</p>
+            <p><strong>Purchase Date:</strong> May 1, 2024</p>
+        </div>
+        <div class="product">
+            <img src="../Images/republicBag.jpeg" alt="Product Image">
+            <div class="product-details">
+                <p><strong>Banana Republic Bag</strong></p>
+                <p><strong>Price:</strong> 3,000</p>
+                <p><strong>Brand:</strong> Banana Republic</p>
+                <form action="updateStatus.php" method="POST">
+                    <input type="hidden" name="order_id" value="4321"> <!-- Hidden input to pass order ID -->
+                    <label for="status">Status:</label>
+                    <select name="status" id="status">
+                        <option value="Processing">Processing</option>
+                        <option value="Shipped">Shipped</option>
+                        <option value="Delivered">Delivered</option>
+                    </select>
+                    <input type="submit" value="Update Status">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

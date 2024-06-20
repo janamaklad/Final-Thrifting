@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 50px;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background-color: rgb(215, 214, 214);
+    border-radius: 5px;
+}
+
+.navbar {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
+}
+
+.navbar a.category:hover {
+    background-color: #ddd;
+}
+
+.selected-category {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.logo {
+    max-width: 200px;
+    display: block;
+    margin-right: auto;
+    margin-left: 20px;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.search-bar {
+    margin-right: 20px;
+}
+
+.search-bar form {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input[type=search] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    margin-right: 5px;
+}
+
+.search-bar button {
+    padding: 8px 12px;
+    background-color: rgb(65, 65, 65);
+    border: none;
+    border-radius: 11px;
+    color: white;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #0056b3;
+}
+
+.categories {
+    display: flex;
+    justify-content: center; /* Centering categories */
+    align-items: flex-end; /* Aligning categories to the bottom */
+    position: absolute;
+    bottom: 0; /* Align categories to the bottom of the navbar */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Move categories to center */
+    width: 100%; /* Make categories span full width of navbar */
+}
+
+.subcategories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the subcategories horizontally */
+    padding: 20px;
+    clear: both; /* Clear floated elements */
+}
+
+.subcategory {
+    width: calc(25% - 20px); /* Each subcategory takes 25% width with 20px spacing between */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.subcategory img {
+    width: 100%; /* Image takes the full width of its container */
+    max-width: 200px; /* Limit the max-width of the image */
+    display: block;
+    margin: 0 auto 10px; /* Center the image horizontally with some margin at the bottom */
+    transition: transform 0.3s ease; /* Add transition for hover effect */
+}
+
+.subcategory:hover img {
+    transform: scale(1.1); /* Increase size on hover */
+}
+
+.subcategory h2 {
+    font-size: 16px; /* Font size for category title */
+    margin-top: 5px; /* Adjust the margin between image and title */
+    color: #555; /* Color for category title */
+}
+
+@media screen and (max-width: 768px) {
+    .subcategories {
+        padding: 10px;
+    }
+    .subcategory {
+        width: calc(50% - 10px); /* On smaller screens, show two subcategories in a row */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .subcategory {
+        width: calc(100% - 20px); /* On screens narrower than 480px, make each subcategory take full width */
+    }
+}

@@ -1,0 +1,274 @@
+body {
+
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    border-radius: 5px;
+  
+}
+h1 {
+  text-align: center;
+  margin-top: 10px; /* Adjust the margin-top as needed */
+  size: 5em;
+}
+
+
+.navbar {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000; 
+} 
+
+.logo {
+  max-width: 200px;
+  display: block;
+  margin-right: auto; 
+  margin-left: 20px; 
+}
+.logo :hover {
+  transform: scale(1.05);
+}
+
+
+.icons {
+  margin-left: auto; 
+  margin-right: 20px; 
+}
+
+.icons a {
+  color: black;
+  font-size: 1.3em;
+  padding-right: 20px;
+}
+.icons :hover {
+  transform: scale(1.05);
+}
+
+.search-bar {
+  margin-right: 20px; 
+}
+
+.search-bar form {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input[type=search] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  margin-right: 5px;
+  margin-top: 9px;
+}
+
+.search-bar button {
+  padding: 8px 12px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 11px;
+  color: white;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #0056b3;
+}
+
+.profile{
+    height: 100vh; /* Set the height of the profile section to 100% of the viewport height */
+  overflow-y: scroll; /* Enable vertical scrolling */
+ 
+    padding: 20px;
+    background-color: transparent;
+    border-radius: 5px;
+    position: absolute;
+    top: 100px; /* Adjust as needed */
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box;
+    
+}
+a{
+    text-decoration: none;
+    color: #070304;
+}
+.profile-options{
+   cursor: pointer;
+}
+.sellButton{
+    display: inline-block;
+  padding: 2px 4px;
+  font-size: 15px;
+  font-weight:lighter;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: black; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+.sellButton:hover{
+    background-color: #333;
+}
+
+.payment-methods {
+    display: flex;
+  }
+  
+  .payment-method {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  
+  
+  .payment-method label {
+    display: block;
+    border: 2px solid #0a0808;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+  
+  .payment-method input[type="radio"]:checked + label {
+    background-color: #070304; /* Light pink */
+  }
+  
+  .payment-method input[type="radio"]:checked + label::before {
+    content: "\2022"; /* Bullet character */
+    font-size: 20px;
+    padding-right: 5px;
+  }
+/* MM/YY field in visa */
+#expiration {
+    width: 50px; 
+    text-align: center; 
+  }
+  #expiration::after {
+    content: "\00a0/\00a0"; 
+  }
+
+ .payment-content {
+  max-width: 400px;
+  max-height: 200px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /*vertical scrolling */
+}
+
+/* Form input styling */
+input {
+  width: calc(100% - 10px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+.form-header {
+    text-align: center;
+    margin-bottom: 20px; /* Adjust as needed for spacing */
+  }
+  
+  .visaCard {
+    max-width: 100%; /* Ensure the photo doesn't exceed its container's width */
+  }
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+.my-orders {
+    
+    display: block; /* Display the My Orders section by default */
+  }
+  
+  .orders-container {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .order {
+    flex: 0 0 calc(25% - 20px); /* Adjust as needed */
+    margin-bottom: 20px;
+    padding: 6px;
+    box-sizing: border-box; /* Include padding in the width calculation */
+  }
+  
+  .order img {
+    width: 150px;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+  .order img:hover{
+    transform: scale(1.1);
+  }
+  .order-info {
+    margin-top: 3px;
+    padding: 4px;
+    font-weight: bold;
+    font-size: small;
+  }
+  
+    .orders-container {
+        display: block; /* Display vertically on mobile */
+    }
+
+    .order {
+        flex: 0 0 100%; /* Take full width on mobile */
+        margin-bottom: 20px; 
+        
+    }
+    @media (max-width: 768px) {
+      .navbar {
+          padding: 10px;
+      }
+  
+      .logo {
+          max-width: 150px;
+          margin-left: 10px;
+      }
+  
+      .icons {
+          margin-right: 10px;
+          justify-content: center; /* Center icons horizontally */
+      }
+  
+      .icons a {
+          font-size: 1em;
+          padding-right: 5px;
+      }
+  
+      .search-bar {
+          margin-right: 10px;
+      }
+  
+      .search-bar input[type=search] {
+          padding: 6px;
+          margin-right: 3px;
+      }
+  
+      .search-bar button {
+          padding: 6px 10px;
+      }
+  
+
+  }
+  

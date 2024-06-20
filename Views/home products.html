@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../Public/Css/products.css">
+    <title>Home Products</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="Thrifting.html" class="logo">
+            <img src="../Images/logo.jpg" width="125px">
+        </a>
+        
+        <div class="icons">
+            <a href="#profile"><i class="far fa-user"></i></a>
+            <a href="#Cart"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#favorites"><i class="fas fa-heart"></i></a>
+        </div>
+        
+        <div class="search-bar">
+            <form action="#">
+                <input type="search" placeholder="Search..." name="search">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        <div class="categories">
+            <a href="categories.html" class="category">Women</a>
+            <a href="categories.html" class="category">Men</a>
+            <a href="categories.html" class="category">Girls</a>
+            <a href="categories.html" class="category">Boys</a>
+            <a href="categories.html" class="category">Baby</a>
+            <a href="categories.html" class="category">Home</a> 
+        </div>
+    </div>
+
+    <h1>Home Products</h1>
+
+    <div id="products-container">
+       
+        <div class="product" data-category="bathroom" onclick="showModal('../Images/sink1.PNG', ['../Images/sink1.PNG'], 'Glass Sink', '6000 LE', 'Hanumex')">
+            <img src="../Images/sink1.PNG" >
+            <div class="product-details">
+                <h2>Glass Sink</h2>
+                <p>Price: 6000 LE</p>
+                <p>Brand: Hanumex</p>
+                <a href="cart.html"><button>Add To Cart</button></a>
+                <a href="favorites.html"><button>Add To Favorites</button></a>
+            </div>
+        </div>
+
+        <div class="product" data-category="decor" onclick="showModal('../Images/vase.PNG', ['../Images/vase.PNG'], 'Antique Vase', '2500 LE', 'Antique')">
+            <img src="../Images/vase.PNG" >
+            <div class="product-details">
+                <h2>Antique vase</h2>
+                <p>Price: 2500 LE</p>
+                <p>Brand: Antique</p>
+                <a href="cart.html"><button>Add To Cart</button></a>
+                <a href="favorites.html"><button>Add To Favorites</button></a>
+            </div>
+        </div>
+    
+        <div class="product"  data-category="decor" onclick="showModal('../Images/clock1.PNG', ['../Images/clock1.PNG', '../Images/clock2.PNG'], 'Grand Clock', '20000 LE', 'Hans')">
+            <img src="../Images/clock1.PNG" >
+            <div class="product-details">
+                <h2>Grand Clock</h2>
+                <p>Price: 20000 LE</p>
+                <p>Brand: Hans</p>
+                <a href="cart.html"><button>Add To Cart</button></a>
+                <a href="favorites.html"><button>Add To Favorites</button></a>
+            </div>
+        </div>
+    
+
+        <div class="product" data-category="dining"   onclick="showModal('../Images/Dinningroom1.PNG', ['../Images/Dinningroom1.PNG', '../Images/Dinningroom2.PNG'], 'Full Dining Room', '20000 LE', 'Furniture Hub')">
+            <img src="../Images/Dinningroom1.PNG" >
+            <div class="product-details">
+                <h2>Full Dining Room</h2>
+                <p>Price: 20000 LE</p>
+                <p>Brand: Furniture Hub</p>
+                <a href="cart.html"><button>Add To Cart</button></a>
+                <a href="favorites.html"><button>Add To Favorites</button></a>
+            </div>
+        </div>
+        <div class="product"  data-category="home fragrance" onclick="showModal('../Images/candle1.PNG', ['../Images/candle1.PNG', '../Images/candle2.PNG'], 'Scented Candle', '400 LE', 'Bath & Body Works')">
+            <img src="../Images/candle1.PNG" >
+            <div class="product-details">
+                <h2>Scented Candle</h2>
+                <p>Price: 400 LE</p>
+                <p>Brand: Bath & Body Works</p>
+                <a href="cart.html"><button>Add To Cart</button></a>
+                <a href="favorites.html"><button>Add To Favorites</button></a>
+            </div>
+        </div>
+    
+        <div class="product" data-category="home fragrance" onclick="showModal('../Images/incense.PNG', ['../Images/incense.PNG'], 'Incense', '600 LE', 'Mabthoth El Mas')">
+            <img src="../Images/incense.PNG" >
+            <div class="product-details">
+                <h2>Incense</h2>
+                <p>Price: 600 LE</p>
+                <p>Brand: Mabthoth El Mas</p>
+                <a href="cart.html"><button>Add To Cart</button></a>
+                <a href="favorites.html"><button>Add To Favorites</button></a>
+            </div>
+            </div>
+            <div class="product" data-category="Furniture" onclick="showModal('../Images/table1.PNG', ['../Images/table1.PNG', '../Images/table2.PNG'], 'Small Table', '2500 LE', 'Specially Customized')">
+                <img src="../Images/table1.PNG" >
+                <div class="product-details">
+                    <h2>Small Table</h2>
+                    <p>Price: 2500 LE</p>
+                    <p>Brand: Specially Customized</p>
+                    <p>Size: Small</p>
+                    <a href="cart.html"><button>Add To Cart</button></a>
+                    <a href="favorites.html"><button>Add To Favorites</button></a>
+                </div>
+            </div>
+        
+            <div class="product" data-category="Furniture" onclick="showModal('../Images/couche1.PNG', ['../Images/couche1.PNG', '../Images/couche2.PNG'], '2 Blue Couches', '8000 LE', 'Furniture Hub')">
+                <img src="../Images/couche1.PNG" >
+                <div class="product-details">
+                    <h2>2 Blue Couches</h2>
+                    <p>Price: 8000 LE</p>
+                    <p>Brand: Furniture Hub</p>
+                    <a href="cart.html"><button>Add To Cart</button></a>
+                    <a href="favorites.html"><button>Add To Favorites</button></a>
+                </div>
+            </div>
+
+            <div class="product" data-category="kitchen" onclick="showModal('../Images/kitchen machine1.PNG', ['../Images/kitchen machine1.PNG', '../Images/kitchen machine2.PNG'], 'Kitchen Machine', '3500 LE', 'Black & Decker')">
+                <img src="../Images/kitchen machine1.PNG" >
+                <div class="product-details">
+                    <h2>Kitchen Machine</h2>
+                    <p>Price: 3500 LE</p>
+                    <p>Brand: Black & Decker</p>
+                    <a href="cart.html"><button>Add To Cart</button></a>
+                    <a href="favorites.html"><button>Add To Favorites</button></a>
+                </div>
+            </div>
+        
+            <div class="product" data-category="kitchen" onclick="showModal('../Images/spoons1.PNG', ['../Images/spoons1.PNG', '../Images/spoons2.PNG'], 'Tableware Set', '6000 LE', 'Solingen')">
+                <img src="../Images/spoons1.PNG" >
+                <div class="product-details">
+                    <h2>Tableware Set</h2>
+                    <p>Price: 6000 LE</p>
+                    <p>Brand: Solingen</p>
+                    <a href="cart.html"><button>Add To Cart</button></a>
+                    <a href="favorites.html"><button>Add To Favorites</button></a>
+                </div>
+            </div>
+     
+        
+    
+    
+    <div id="modal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-images">
+                <img id="modal-img" src="" alt="">
+                <div class="thumbnails" id="thumbnails"></div>
+            </div>
+            <div class="product-info">
+                <h2 id="modal-title"></h2>
+                <p id="modal-price"></p>
+                <p id="modal-brand"></p>
+                <p id="modal-size"></p>
+                <a href="cart.html"><button>Add To Cart</button></a>
+                <a href="favorites.html"><button>Add To Favorites</button></a>
+            </div>
+            <div class="arrow-container">
+                <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+                <button class="next" onclick="changeImage(1)">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../Public/Js/products.js"></script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../Public/Css/products.css">
+    <title>Baby Products</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="Thrifting.html" class="logo">
+            <img src="../Images/logo.jpg" width="125px">
+        </a>
+        
+        <div class="icons">
+            <a href="#profile"><i class="far fa-user"></i></a>
+            <a href="#Cart"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#favorites"><i class="fas fa-heart"></i></a>
+        </div>
+        
+        <div class="search-bar">
+            <form action="#">
+                <input type="search" placeholder="Search..." name="search">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        <div class="categories">
+            <a href="AdminWomen.html" class="category">Women</a>
+            <a href="AdminMen.html" class="category">Men</a>
+            <a href="AdminGirls.html" class="category">Girls</a>
+            <a href="AdminBoys.html" class="category">Boys</a>
+            <a href="AdminBaby.html" class="category active">Baby</a>
+            <a href="AdminHome.html" class="category">Home</a>
+        </div>
+    </div>
+
+    <h1>Baby Products</h1>
+
+    <div id="products-container">
+        <div class="product" data-category="sleepsuits" onclick="showModal('../Images/bbsleepsuit1.png', ['../Images/bbsleepsuit1.png'], 'turtle sleepsuit', '400 LE', 'mothercare','3-6 Months')">
+            <img src="../Images/bbsleepsuit1.png" >
+            <div class="product-details">
+                <h2> turtle sleepsuit</h2>
+                <p>Price: 400 LE</p>
+                <p>Brand: mothercare</p>
+                <p>Size: 3-6 Months </p>
+                <button onclick="removeProduct('../Images/bbsleepsuit1.png', 'turtle sleepsuit', ' 400 LE', 'mothercare','3-6 Months')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/bbsleepsuit1.png', 'turtle sleepsuit', ' 400 LE', 'mothercare','3-6 Months')">Edit</button>
+            </div>
+        </div>
+    
+        <div class="product" data-category="sleepsuits" onclick="showModal('../Images/bbsleepsuit2.png', ['../Images/bbsleepsuit2.png'], 'pink stars sleepsuit', '450 LE', 'mothercare','0-3 Months')">
+            <img src="../Images/bbsleepsuit2.png" >
+            <div class="product-details">
+                <h2>pink stars sleepsuit</h2>
+                <p>Price: 450 LE</p>
+                <p>Brand: mothercare</p>
+                <p>Size: 0-3 Months </p>
+                <button onclick="removeProduct('../Images/bbsleepsuit2.png', 'pink stars sleepsuit', ' 450 LE', 'mothercare','0-3 Months')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/bbsleepsuit2.png', 'pink stars sleepsuit', ' 450 LE', 'mothercare','0-3 Months')">Edit</button>
+            </div>
+        </div>
+        <div class="product" data-category="bodysuits" >
+            <img src="../Images/bbbodysuit1.png" > 
+            <div class="product-details">
+                <h2> new born bodysuit</h2>
+                <p>Price: 350 LE</p>
+                <p>Brand: mothercare</p>
+                <p>Size: newborn </p>
+                <button onclick="removeProduct('../Images/bbbodysuit1.png', 'new born bodysuit', '350 LE', 'mothercare','newborn')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/bbbodysuit1.png', 'new born bodysuit', '350 LE', 'mothercare','newborn')">Edit</button>
+            </div>
+        </div>
+    
+        <div class="product" data-category="bodysuits" >
+            <img src="../Images/bbbodysuit2.png" >
+            <div class="product-details">
+                <h2>yellow bodysuit</h2>
+                <p>Price: 250 LE</p>
+                <p>Brand: mothercare</p>
+                <p>Size: 6-9 Months </p>
+                <button onclick="removeProduct('../Images/bbbodysuit2.png','yellow bodysuit', '250 LE', 'mothercare','6-9 Months')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/bbbodysuit2.png', 'yellow bodysuit', '250 LE', 'mothercare','6-9 Months')">Edit</button>
+            </div>
+        </div>
+
+        <div class="product" data-category="accessories" onclick="showModal('../Images/bbaccessories1.png', ['../Images/bbaccessories1.png'], 'car set', '5,000 LE', 'mothercare')">
+            <img src="../Images/bbaccessories1.png" >
+            <div class="product-details">
+                <h2> car set</h2>
+                <p>Price: 5,000 LE</p>
+                <p>Brand: mothercare</p>
+                <button onclick="removeProduct('../Images/bbaccessories1.png', 'car set', '5,000 LE', 'mothercare',)">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/bbaccessories1.png', 'car set', '5,000 LE', 'mothercare',)">Edit</button>
+            </div>
+        </div>
+    
+        <div class="product" data-category="accessories" onclick="showModal('../Images/bbaccessories2.png', ['../Images/bbaccessories2.png'], 'pink cap', '200 LE', 'mothercare')">
+            <img src="../Images/bbaccessories2.png" >
+            <div class="product-details">
+                <h2>pink cap </h2>
+                <p>Price: 200 LE</p>
+                <p>Brand: mothercare</p>
+                <button onclick="removeProduct('../Images/bbaccessories2.png', 'pink cap', '200 LE', 'mothercare')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/bbaccessories2.png',  'pink cap', '200 LE', 'mothercare')">Edit</button>
+            </div>
+        </div>
+        <div class="product" data-category="tops" onclick="showModal('../Images/bbtops1.png', ['../Images/bbtops1.png'], 'floral baby top', '350 LE', 'mothercare','3-6 Months')">
+            <img src="../Images/bbtops1.png" >
+            <div class="product-details">
+                <h2> floral baby top</h2>
+                <p>Price: 350 LE</p>
+                <p>Brand: mothercare</p>
+                <p>Size: 3-6 Months </p>
+                <button onclick="removeProduct('../Images/bbtops1.png', 'floral baby top', ' 350 LE', 'mothercare',' 3-6 Months')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/bbtops1.png', 'floral baby top', ' 350 LE', 'mothercare',' 3-6 Months')">Edit</button>
+            </div>
+        </div>
+    
+        <div class="product"  data-category="tops" onclick="showModal('../Images/bbtops2.png', ['../Images/bbtops2.png'], 'dinosaur t-shirt', '300 LE', 'mothercare',' 1 year')">
+            <img src="../Images/bbtops2.png" >
+            <div class="product-details">
+                <h2>dinosaur t-shirt </h2>
+                <p>Price: 300 LE</p>
+                <p>Brand: mothercare</p>
+                <p>Size: 1 year </p>
+                <button onclick="removeProduct('../Images/bbtops2.png', 'dinosaur t-shirt', ' 300 LE', 'mothercare','1 year')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/bbtops2.png', 'dinosaur t-shirt', ' 300 LE', 'mothercare','1 year')">Edit</button>
+            </div>
+        </div>
+        <div class="product" data-category="costume" onclick="showModal('../Images/bbcostume1.png', ['../Images/bbcostume1.png'], 'elephant costume', '500 LE', 'mothercare','3-6 Months')">
+            <img src="../Images/bbcostume1.png" >
+            <div class="product-details">
+                <h2> elephant costume</h2>
+                <p>Price: 400 LE</p>
+                <p>Brand: mothercare</p>
+                <p>Size: 3-6 Months </p>
+                <button onclick="removeProduct('../Images/bbcostume1.png', 'elephant costume', '500 LE', 'mothercare','3-6 Months')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/bbcostume1.png',  'elephant costume', '500 LE', 'mothercare','3-6 Months')">Edit</button>
+            </div>
+        </div>
+    
+        <div class="product" data-category="costume" onclick="showModal('../Images/bbcostume2.png', ['../Images/bbcostume2.png'], 'bee costume', '550 LE', 'mothercare','6-9 Months')">
+            <img src="../Images/bbcostume2.png" >
+            <div class="product-details">
+                <h2>bee costume </h2>
+                <p>Price: 550 LE</p>
+                <p>Brand: mothercare</p>
+                <p>Size: 6-9 Months </p>
+                <button onclick="removeProduct('../Images/bbcostume2.png', 'bee costume', '550 LE', 'mothercare','6-9 Months')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/bbcostume2.png', 'bee costume', '550 LE', 'mothercare','6-9 Months')">Edit</button>
+            </div>
+        </div>
+        <div class="product" data-category="bottoms" onclick="showModal('../Images/bbbottoms1.png', ['../Images/bbbottoms1.png'], 'floral skirt', '400 LE', 'mothercare','3-6 Months')">
+            <img src="../Images/bbbottoms1.png" >
+            <div class="product-details">
+                <h2> floral skirt</h2>
+                <p>Price: 400 LE</p>
+                <p>Brand: mothercare</p>
+                <p>Size: 3-6 Months </p>
+                <button onclick="removeProduct('../Images/bbbottoms1.png', 'floral skirt', ' 400 LE', 'mothercare',' 3-6 Months')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/bbbottoms1.png', 'floral skirt', ' 400 LE', 'mothercare',' 3-6 Months')">Edit</button>
+            </div>
+        </div>
+    
+        <div class="product" data-category="bottoms" onclick="showModal('../Images/bbbottoms2.png', ['../Images/bbbottoms2.png'], 'jeans short', '350 LE', 'mothercare','6-9 Months')">
+            <img src="../Images/bbbottoms2.png" >
+            <div class="product-details">
+                <h2>jeans short </h2>
+                <p>Price: 350 LE</p>
+                <p>Brand: mothercare</p>
+                <p>Size: 6-9 Months </p>
+                <button onclick="removeProduct('../Images/bbbottoms2.png', 'jeans short', '350 LE', 'mothercare','6-9 Months')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/bbbottoms2.png', 'jeans short', '350 LE', 'mothercare','6-9 Months')">Edit</button>
+            </div>
+        </div>
+        <div class="product" data-category="shoes" onclick="showModal('../Images/bbshoes1.png', ['../Images/bbshoes1.png'], 'pink slipper', '400 LE', 'mothercare','3-6 Months')">
+            <img src="../Images/bbshoes1.png" >
+            <div class="product-details">
+                <h2> pink slipper</h2>
+                <p>Price: 400 LE</p>
+                <p>Brand: mothercare</p>
+                <p>Size: 3-6 Months </p>
+                <button onclick="removeProduct('../Images/bbshoes1.png', 'pink slipper', '400 LE', 'mothercare','3-6 Months')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/bbshoes1.png',  'pink slipper', '400 LE', 'mothercare','3-6 Months')">Edit</button>
+            </div>
+        </div>
+    
+        <div class="product" data-category="shoes" onclick="showModal('../Images/bbshoes2.png', ['../Images/bbshoes2.png'], 'white shoes', '350 LE', 'mothercare','0-3 Months')">
+            <img src="../Images/bbshoes2.png" >
+            <div class="product-details">
+                <h2>white shoes </h2>
+                <p>Price: 350 LE</p>
+                <p>Brand: mothercare</p>
+                <p>Size: 0-3 Months </p>
+                <button onclick="removeProduct('../Images/bbshoes2.png', 'white shoes', '350 LE', 'mothercare','0-3 Months')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/bbshoes2.png',  'white shoes', '350 LE', 'mothercare','0-3 Months')">Edit</button>
+            </div>
+        </div>
+        <div class="product" data-category="outerwear" onclick="showModal('../Images/bbjackets1.png', ['../Images/bbjackets1.png'], 'ballons jacket', '500 LE', 'mothercare','3-6 Months')">
+            <img src="../Images/bbjackets1.png" >
+            <div class="product-details">
+                <h2> ballons jacket</h2>
+                <p>Price: 400 LE</p>
+                <p>Brand: mothercare</p>
+                <p>Size: 3-6 Months </p>
+                <button onclick="removeProduct('../Images/bbjackets1.png',  'ballons jacket', '500 LE', 'mothercare','3-6 Months')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/bbjackets1.png',  'ballons jacket', '500 LE', 'mothercare','3-6 Months')">Edit</button>
+            </div>
+        </div>
+    
+        <div class="product" data-category="outerwear" onclick="showModal('../Images/bbjackets2.png', ['../Images/bbjackets2.png'], 'blue jacket', '550 LE', 'mothercare','9-12 Months')">
+            <img src="../Images/bbjackets2.png" >
+            <div class="product-details">
+                <h2>blue jacket </h2>
+                <p>Price: 550 LE</p>
+                <p>Brand: mothercare</p>
+                <p>Size: 9-12 Months </p>
+                <button onclick="removeProduct('../Images/bbjackets2.png', 'blue jacket', '550 LE', 'mothercare','9-12 Months')">Remove</button>
+                <button class="edit-button" onclick="editProduct('../Images/bbjackets2.png', 'blue jacket', '550 LE', 'mothercare','9-12 Months')">Edit</button>
+            </div>
+        </div>
+    
+    </div>
+    
+       
+      
+               
+    <div id="modal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-images">
+                <img id="modal-img" src="" alt="">
+                <div class="thumbnails" id="thumbnails"></div>
+            </div>
+            <div class="product-info">
+                <h2 id="modal-title"></h2>
+                <p id="modal-price"></p>
+                <p id="modal-brand"></p>
+                <p id="modal-size"></p>
+            </div>
+            <div class="arrow-container">
+                <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+                <button class="next" onclick="changeImage(1)">&#10095;</button>
+            </div>
+        </div>
+        
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditModal()">&times;</span>
+            <h2>Edit Product</h2>
+            <form id="editForm">
+                <label for="edit-price">Price:</label>
+                <input type="number" id="edit-price" name="edit-price" required>
+    
+                <label for="edit-size">Size:</label>
+                <select id="edit-size" name="edit-size">
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                </select>
+
+                <button id="saveButton" type="button" onclick="submitEdit()">Save</button>
+            </form>
+        </div>
+        
+    </div>
+
+    <script src="..Public/Js/remove.js"></script>
+    <script src="..Public/Js/products.js"></script>
+    <script>
+        // Simulating admin login state
+        let isAdminLoggedIn = true; // Set to true to simulate admin logged in
+
+        function addToCartOrRemove(image, title, price, brand, size) {
+    if (isAdminLoggedIn) {
+        // Show confirmation message
+        removeProductConfirmation();
+        
+        // Remove the product from the page
+        console.log("Product removed:", title);
+        // Here you can implement the logic to actually remove the product
+    } else {
+        // Perform add to cart action
+        console.log("Product added to cart:", title);
+        // Here you can implement the logic to add the product to cart
+    }
+}
+
+
+       
+    </script>
+    
+</body>
+</html>

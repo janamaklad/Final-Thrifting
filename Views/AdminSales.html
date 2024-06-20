@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>View Sales Dashboard</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    h1 {
+        text-align: center;
+    }
+    .sales-section {
+        margin-bottom: 20px;
+    }
+    .sales-section h2 {
+        margin-bottom: 10px;
+    }
+    .sales-stats {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    .sales-stats div {
+        flex: 0 0 48%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+    .sales-list {
+        margin-top: 20px;
+        overflow-x: auto;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>View Sales Dashboard</h1>
+
+    <div class="sales-section">
+        <h2>Sales Overview</h2>
+        <div class="sales-stats">
+            <div>Total Sales: 10,000 EGP</div>
+        </div>
+        <div class="sales-stats">
+            <div>Average Order Value: 500 EGP</div>
+        </div>
+        <div class="sales-stats">
+            <div>New Customers: 15%</div>
+        </div>
+    </div>
+
+    <div class="sales-section">
+        <h2>Recent Orders</h2>
+        <div class="sales-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Date</th>
+                        <th>Customer</th>
+                        <th>Item</th>
+                        <th>Total Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#4322</td>
+                        <td>2024-05-01</td>
+                        <td>Yasmine Mohamed</td>
+                        <th>Adjustable Split Skirt</th>
+                        <td>440 EGP</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../Public/Css/Thrifting.css">
+    <link rel="stylesheet" href="../Public/Css/signin.css">
+    <link rel="icon" href="../favicon.png" type="image/png">
+    <title>Second Chance</title>
+</head>
+<body> 
+
+    <div class="navbar">
+        <a href="Thrifting.html" class="logo">
+            <img src="../Images/logo.jpg" width="125px">
+        </a>
+        
+        <div class="icons">
+            <div class="two-btns">
+            <a href="register.html" class="nav-btn register-btn">Register</a>
+            <a href="#" id="signin-btn" class="nav-btn signin-btn">Sign In</a>
+            </div>
+            <a href="profile.html"><i class="far fa-user"></i></a>
+            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            <a href="favorites.html"><i class="fas fa-heart"></i></a>
+            <a href="search.html"><i class="fa fa-filter"></i></a>
+     
+        </div>
+        <div class="search-bar">
+            <form  action="#">
+                <input type="search" placeholder="Search..." name="search">
+                <button type="submit" i class="fas fa-search"></i></button>
+        
+            </form>
+        </div>
+       
+    </div>
+
+    <div class="center-pic">
+        <img src="../Images/homepage.jpg">
+        <h2 class="categories-header">Shop By Category</h2>
+        <div class="categories">
+            <a href="categories.html"><img src="../Images/ShopWomen.jpg" ></a>
+            <a href="categories.html"><img src="../Images/ShopMen.jpg" ></a>
+            <a href="categories.html"><img src="../Images/ShopGirls.jpg" ></a>
+            <a href="categories.html"><img src="../Images/ShopBoys.jpg" ></a>
+            <a href="categories.html"><img src="../Images/ShopBaby.jpg" ></a>
+            <a href="categories.html"><img src="../Images/ShopHome.jpg" ></a>
+
+        </div>
+    </div>
+
+
+    <div class="sell-now">
+        <img src="../Images/sell img.jpg" alt="Sell Now">
+        <a href="Sell.html" class="sell-button">Sell Now</a>
+    </div>
+    
+    <a class="aboutus" href="aboutus.html">ABOUT US</a>
+    
+    <div id="modal" class="modal">
+        <div class="container">
+            <h2>Welcome back!</h2>
+            <form id="signin">
+                <div class="form-group">
+                   
+                    <input type="text" id="username" name="username" required placeholder="Username">
+                </div>
+                <div class="form-group">
+                 
+                    <input type="password" id="password" name="password" required placeholder="Password">
+                </div>
+                <div id="error-message" class="error-message"></div>
+               
+
+                <button type="submit">Log In</button>
+    
+                <p>Don't have an account? <a href="register.html" id="signup1">Sign Up</a> </p>
+                
+               
+
+            </form>
+        </div>
+        </div>
+        <div id="overlay" class="overlay"></div>
+    
+    <script>
+    document.getElementById('signup1').addEventListener('click',function(event){
+    event.preventDefault();
+    window.location.href='register.html';
+    });
+    
+    document.addEventListener('DOMContentLoaded', function() {
+    const signinform = document.getElementById('signin');
+    
+    const signinbtn=document.getElementById('signin-btn');
+    const modal= document.getElementById('modal');
+    const overlay= document.getElementById('overlay');
+
+    const correctuser='user22';
+    const correctpass='12345';
+
+    const adminuser='admin22';
+    const adminpass='54321';
+    
+    const errormsg=document.getElementById('error-message');
+
+    signinbtn.addEventListener('click', function(event) {
+        event.preventDefault();
+    
+    
+        modal.classList.add('active');
+        overlay.classList.add('active');
+    
+    });
+    
+    signinform.addEventListener('submit',function(event){
+        event.preventDefault();
+    
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        console.log('Username:', username);
+        console.log('Password:', password);
+    
+           if(username=== correctuser && password=== correctpass){
+
+        signinform.reset(); 
+        
+        modal.classList.remove('active');
+        overlay.classList.remove('active');
+
+        window.location.href='profile.html';
+
+           }else if(username===adminuser && password===adminpass){
+             signinform.reset();
+
+             modal.classList.remove('active');
+             overlay.classList.remove('active');
+
+             window.location.href='Admin.html';
+           }
+           
+           else{
+            errormsg.textContent='Incorrect Username or Password*';
+           }
+    });
+    
+    overlay.addEventListener('click', function(){
+        modal.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+    });
+    
+    
+    </script>
+      <script src="../Public/Js/search.js"></script>
+      <script src="../Public/Js/categories.js"></script>
+
+</body>
+</html>

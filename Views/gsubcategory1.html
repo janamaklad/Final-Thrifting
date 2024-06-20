@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="products.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Top Wear Products</title>
+
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="Thrifting.html" class="logo">
+            <img src="logo.jpg" width="125px">
+        </a>
+        
+        <div class="icons">
+            <a href="#profile"><i class="far fa-user"></i></a>
+            <a href="#Cart"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#favorites"><i class="fas fa-heart"></i></a>
+          
+
+        </div>
+        
+        <div class="search-bar">
+            <form action="#">
+                <input type="search" placeholder="Search..." name="search">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        <div class="categories">
+            <a href="categories.html" class="category active">Women</a>
+            <a href="categories.html" class="category">Men</a>
+            <a href="categories.html" class="category">Girls</a>
+            <a href="categories.html" class="category">Boys</a>
+            <a href="categories.html" class="category">Baby</a>
+            <a href="categories.html" class="category">Home</a> 
+        </div>
+    </div>
+
+    <h1>Girls Top Wear</h1>
+    <div class="product" onclick="showModal('purpleShirt1.jpeg', ['purpleShirt1.jpeg', 'purpleShirt2.jpeg'], 'Letter Graphic Crew Neck Tee', '250 LE', 'SHEIN','Medium')">
+        <img src="purpleShirt1.jpeg" >
+        <div class="product-details">
+            <h2>Letter Graphic Crew Neck Tee</h2>
+            <p>Price: 250 LE</p>
+            <p>Brand: SHEIN</p>
+            <p>Size: Medium </p>
+            <a href="cart.html"><button>Add To Cart</button></a>
+            <a href="favorites.html"><button>Add To Favorites</button></a>
+        </div>
+    </div>
+
+    <div id="modal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-images">
+                <img id="modal-img" src="" alt="">
+                <div class="thumbnails" id="thumbnails"></div>
+            </div>
+            <div class="product-info">
+                <h2 id="modal-title"></h2>
+                <p id="modal-price"></p>
+                <p id="modal-brand"></p>
+                <p id="modal-size"></p>
+                <a href="cart.html"><button>Add To Cart</button></a>
+                <a href="favorites.html"><button>Add To Favorites</button></a>
+            </div>
+            <div class="arrow-container">
+                <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+                <button class="next" onclick="changeImage(1)">&#10095;</button>
+            </div>
+        </div>
+    </div>
+    <script src="products.js"></script>
+</body>
+</html>

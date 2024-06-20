@@ -1,0 +1,67 @@
+body{
+    font-family: Arial, sans-serif;
+    background-color: white;
+    background-size: cover; 
+    background-position: center;
+}
+.users{
+    padding: 10px;
+    margin-top: 20px;
+}
+.user{
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow:0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.user-info{
+    font-size: 80%;
+    font-weight:500;
+}
+.label {
+    font-weight: bold; 
+    font-size: 110%;
+}
+
+.det {
+    font-size: 100%;
+}
+
+.buy-sell-info{
+    align-items: center;
+    display: flex;
+    margin-right: 20px; /* Adjust margin as needed */
+}
+
+.buy-sell-info img {
+    width: 8%;
+   margin: 5px;
+    height: auto;
+
+}
+.product-details{
+    flex:1;
+    font-size: 80%;
+}
+
+button {
+    display: block;
+    position:static;
+    text-align: center right;
+    padding: 10px;
+    background-color: #2596b5;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 155;
+    font-size: 1.2em;
+    margin:0 auto;
+}
+
+button:hover {
+    background-color: #39bce0;
+}
