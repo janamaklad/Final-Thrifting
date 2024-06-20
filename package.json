@@ -1,6 +1,9 @@
 {
   "dependencies": {
-    "express": "^4.19.2"
+    "-": "^0.0.1",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "save-dev": "^0.0.1-security"
   },
   "devDependencies": {
     "nodemon": "^3.1.3"
