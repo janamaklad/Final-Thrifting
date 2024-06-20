@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Wear Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/Css/favorites.css"> <!-- Link to your CSS file -->
+    
+</head>
+
+<body>
+    <section class="navbar">
+        <a href="Thrifting.html" class="logo">
+            <img src="/Images/logo.jpg" width="125px">
+        </a>
+        
+        <div class="icons">
+            <a href="profile.html"><i class="far fa-user"></i></a>
+            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            <a href="favorites.html"><i class="fas fa-heart"></i></a>
+            <a href="search.html"><i class="fa fa-filter"></i>
+     
+        </div>
+        
+        <div class="search-bar">
+            <form action="#">
+                <input type="search" placeholder="Search..." name="search">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </section>
+
+  
+<div class="product-item">
+    <img src="/Images/floralbag1.png" >
+        <div class="product-details">
+            <h2>floral bag</h2>
+            <p>Price: 700 LE</p>
+            <p>Brand:parfios</p>
+    
+            <a href="cart.html"><button>Add To Cart</button></a>
+     
+        </div>
+    </div>
+    <div class="product-item">
+    <img src="/Images/nike leggings.png" >
+    <div class="product-details">
+        <h2>nike leggings</h2>
+        <p>Price: 1,100 LE</p>
+        <p>Brand:Nike</p>
+        <p>Size: xs/s </p>
+        <a href="cart.html"><button>Add To Cart</button></a>
+  
+    </div>
+</div>
+<div class="product-item">
+<img src="/Images/Leather Chunky Loafers1.png" >
+<div class="product-details">
+    <h2>Leather Chunky Loafers</h2>
+    <p>Price: 700 LE</p>
+    <p>Brand:dejavu </p>
+    <p>Size: 39 </p>
+    <a href="cart.html"><button>Add To Cart</button></a>
+
+</div>
+</div>
+<div class="product" onclick="showModal('/Images/Nike Joggers.PNG', ['/Images/Nike Joggers.PNG'], 'Nike Joggers', '875 LE', 'Nike','Medium/Large')">
+    <img src="/Images/Nike Joggers.png" >
+    <div class="product-details">
+        <h2>nike Joggers</h2>
+        <p>Price: 875 LE</p>
+        <p>Brand:Nike</p>
+        <p>Size: Medium/Large </p>
+        <a href="cart.html"><button>Add To Cart</button></a>
+       
+    </div>
+</div>
+<div class="product" onclick="showModal('/Images/new vans.png', ['/Images/new vans.png', '/Images/new vans.png', '/Images/new vans.png'], 'new vans', '2,500 LE', 'black sneakers','44.5')">
+    <img src="/Images/new vans.png" >
+    <div class="product-details">
+        <h2>black sneakers</h2>
+        <p>Price: 2,500 LE</p>
+        <p>Brand:Vans </p>
+        <p>Size: 44.5 </p>
+        <a href="cart.html"><button>Add To Cart</button></a>
+  
+    </div>
+</div>
+<div class="product" onclick="showModal('/Images/Ruffles pink dress1.png', ['/Images/Ruffles pink dress1.png', '/Images/Ruffles pink dress2.PNG'], 'Ruffles Pink Dress', '750 LE', 'H&M','Medium')">
+    <img src="/Images/Ruffles pink dress1.png" >
+    <div class="product-details">
+        <h2>Ruffles Pink Dress</h2>
+        <p>Price: 750 LE</p>
+        <p>Brand: H&M</p>
+        <p>Size: Medium </p>
+        <a href="cart.html"><button>Add To Cart</button></a>
+        
+    </div>
+</div>
+
+
+
+<script>
+    // Function to toggle favorite status
+function toggleFavorite(button) {
+    const productItem = button.closest(".product-item");
+    const productName = productItem.querySelector("h2").innerText.trim();
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    const index = favorites.indexOf(productName);
+    if (index === -1) {
+        // Add to favorites
+        favorites.push(productName);
+        button.textContent = "Remove from Favorites";
+    } else {
+        // Remove from favorites
+        favorites.splice(index, 1);
+        button.textContent = "Add to Favorites";
+    }
+
+    // Update localStorage
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+
+    // Update favorites display
+    displayFavorites();
+}
+
+// Function to display favorites
+function displayFavorites() {
+    const favoritesList = JSON.parse(localStorage.getItem("favorites")) || [];
+    const favoritesContainer = document.getElementById("favorites-list");
+    favoritesContainer.innerHTML = "";
+
+    if (favoritesList.length === 0) {
+        const emptyMsg = document.createElement("p");
+        emptyMsg.textContent = "No favorites added yet.";
+        favoritesContainer.appendChild(emptyMsg);
+    } else {
+        favoritesList.forEach(function(productName) {
+            const productItem = document.createElement("div");
+            productItem.textContent = productName;
+            favoritesContainer.appendChild(productItem);
+        });
+    }
+}
+
+// Function to initialize
+function initialize() {
+    // Attach click event to favorite buttons
+    const favoriteButtons = document.querySelectorAll(".favorite-btn");
+    favoriteButtons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            toggleFavorite(button);
+        });
+    });
+
+    // Display favorites
+    displayFavorites();
+}
+
+// Call initialize function when the page loads
+window.onload = function() {
+    initialize();
+};
+
+</script>
+</body> 
+ 
+<body>
+    <div class="favorites">
+    <H2> Here's Ur Favorites</H2>
+    </div>
+</body>
+
+
+</html>

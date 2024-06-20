@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/Css/cart.css">
+    <link rel="icon" href="../favicon.png" type="image/png">
+    <title>Your Cart</title>
+</head>
+<body> 
+
+    <section class="navbar">
+        <a href="Thrifting.html" class="logo">
+            <img src="/Images/logo.jpg" width="125px">
+        </a>
+        
+        <div class="icons">
+            <a href="profile.html"><i class="far fa-user"></i></a>
+            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            <a href="favorites.html"><i class="fas fa-heart"></i></a>
+            <a href="search.html"><i class="fa fa-filter"></i></a>
+        </div>
+        
+        <div class="search-bar">
+            <form action="#">
+                <input type="search" placeholder="Search..." name="search">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </section>
+
+    <section class="cart-container">
+        <div class="cart-details">
+            <h1 class="title">my shopping bag (3 items)</h1>
+            <div class="info-banner">
+                <p><strong>FREE Returns</strong> Now Available Online! <a href="returns_policy.html">Learn more</a></p>
+            </div>
+            <div class="items">
+                <a href="beij_denim_detail.html">
+                    <div class="product">
+                        <img src="/Images/beij pants1.PNG">
+                        <div class="product-details">
+                            <h2>beij Denim</h2>
+                            <p>Price: 450 LE</p>
+                            <p>Brand: Zara</p>
+                            <p>Size: 34 EUR</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="blue_denim_detail.html">
+                    <div class="product">
+                        <img src="/Images/wjeans1.PNG">
+                        <div class="product-details">
+                            <h2>Blue Denim</h2>
+                            <p>Price: 500 LE</p>
+                            <p>Brand: Zara</p>
+                            <p>Size: 32 EUR</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="ruffles_pink_dress_detail.html">
+                    <div class="product">
+                        <img src="/Images/Ruffles pink dress1.PNG">
+                        <div class="product-details">
+                            <h2>Ruffles Pink Dress</h2>
+                            <p>Price: 750 LE</p>
+                            <p>Brand: H&M</p>
+                            <p>Size: Medium</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="order-summary">
+            <h2>Order Summary</h2>
+            <div class="promo-code">
+                <input type="text" placeholder="Promo Code">
+                <button>DONE</button>
+            </div>
+            <div class="summary-details">
+                <p>Subtotal: <span>EGP 1700.00</span></p>
+                <p>Order Total: <span>EGP 1700.00</span></p>
+                <p class="vat-info">Inclusive of VAT</p>
+            </div>
+            <a href="checkout.html" class="checkout">CONTINUE TO CHECKOUT</a>
+        </div>
+    </section>
+    
+    <script src="/Js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Profile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/Css/profile.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/Css/visa.css">
+<link rel="stylesheet" href="/Css/products.css">   
+</head>
+<body>
+
+
+    <div class="navbar">
+        <a href="Thrifting.html" class="logo">
+            <img src="/Images/logo.jpg" width="125px">
+        </a>
+        
+        <div class="icons">
+            <a href="profile.html?signedin=true" id="profileLink"><i class="far fa-user"></i></a>
+            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+            <a href="favorites.html"><i class="fas fa-heart"></i></a>
+        </div>
+        
+        <div class="search-bar">
+            <form action="#">
+                <input type="search" placeholder="Search..." name="search">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+        
+
+        <section class="profile">
+           <h1 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Welcome Back!</h1>
+           
+           
+
+            <div class="profile-options">
+
+                <section class="my-orders" id="my-orders">
+
+                    <h2>
+                        <span><i class="fas fa-shopping-bag"></i></span>
+                       <a href="#" target="_top">My orders</a> 
+                        </h2>
+                           
+                            <div class="orders-container" id="history">
+
+                                <h1 style="display: block;"><b> Previously Purchased </b> </h1>
+                      
+                                <div class="order">
+                                    <div class="product" onclick="showModal('/Images/StradivariosDenim.jpeg', ['/Images/StradivariosDenim.jpeg'], 'Stradivarius Denim', '550 LE', 'Stradivarius','Small')">
+                                        <img src="/Images/StradivariosDenim.jpeg" >
+                                        
+                                        <div class="product-details">
+                                            <h2>Stradivarius Denim</h2>
+                                            <p>Price: 550 LE</p>
+                                            <p>Brand: Stradivarius</p>
+                                            <p>Size: Small </p>
+                                        <p>Date: 2024-04-17</p>
+                                        <p>Status: Delivered</p>
+                                        </div>
+                                    </div>  
+
+                        <!--        <img src="StradivariosDenim.jpeg" alt="Product Image">
+                                <div class="order-info">
+                                <p class="price">EGP 500</p>
+                                <P class="brand">Stradivarius Denim</P>
+                                <p class="size">Size: S</p>
+                                <p class="condition">Condition: As New</p>
+                                <p class="date">Date: 2024-05-02</p>
+                            </div>  -->
+                              </div>
+
+                              <div class="order">
+                                <div class="product" onclick="showModal('/Images/aldoBag.jpeg', ['/Images/aldoBag.jpeg'], 'Aldo Bag', '289 LE', 'ALDO',null)">
+                                    <img src="/Images/aldoBag.jpeg" >
+                                    
+                                    <div class="product-details">
+                                        <h2>Aldo Bag</h2>
+                                        <p>Price: 289 LE</p>
+                                        <p>Brand: ALDO</p>
+                                        <p>Date: 2024-05-02</p>
+                                    <p>Status: Shipped</p>
+                                    </div>
+                                </div>  
+
+                               <!-- <img src="aldoBag.jpeg" alt="Product Image">
+                                <div class="order-info">
+                                <p class="price">EGP 289</p>
+                                <P class="brand">ALDO bag</P>
+                                <p class="condition">Condition: Good</p>
+                                <p class="date">Date: 2024-05-02</p>
+                                </div> -->
+                              </div>
+                            
+                              
+
+                            </div>
+                          </section>
+                          
+                </div>
+
+
+
+
+                <div class="option" id="payment-methods">
+                    <div class="profile-options">
+                        <div class="option" id="payment-methods">
+                            <h2>
+                                <span><i class="fa fa-money-check"></i></span>
+                                <a href="#">Payment Methods</a> 
+                            </h2>
+                        </div>
+                    </div>
+                
+                    <div id="visa" style="display: none;">
+                        
+                            <input type="radio" name="payment" id="visa-radio" checked>
+                            <label for="visa-radio">Visa</label>
+                        
+                    </div>
+                </div>
+                
+                      
+                      <div id="cash" style="display: none;">
+                        <input type="radio" name="payment" id="cash-radio">
+                        <label for="cash-radio">Cash</label>
+                      </div>
+                      
+                      <div id="visa-content" class="payment-content" style="display: none;">
+                        <div class="form-header">
+                            <img src="/Images/visaCard.jpeg" class="visaCard">
+                          </div>
+                        <form id="payment-form" onsubmit="return validateForm()">
+                            <input type="numeric" id="cardNumber" placeholder="Card Number" name="cardNumber" maxlength="16" size="16" required><br>
+                            <input type="text" id="fullName" placeholder="Full Name" name="fullName" required><br>
+                            <input type="text" id="expiration" name="expiration" placeholder="MM / YY" maxlength="5" size="5" required><br>
+                            <input type="numeric" id="cvc" pattern="\d*" placeholder="CVC" name="cvc" minlength="3" required><br>
+                            <button type="submit" class="sellButton">Submit</button>
+                          </form>    
+                      </div>
+                
+                  
+                  
+                <div class="option">
+                    <h2>
+                        <span><i class="fas fa-address-book"></i></span>
+                        <a href="contactus.html">Contact Us</a></h2>
+                 
+                       
+                </div>
+                <div class="option">
+                    <h2>
+                       <span> <i class="fas fa-info-circle"></i> </span>
+                        <a href="#" id="viewDetails">My Details</a></h2>
+                </div>
+    
+                <div class="option">
+                    <h2><button onclick="window.location.href='Sell.html'" class="sellButton">Sell Items</button>
+                    </h2>
+                </div>
+            </div>
+    </section>   
+        <script src="/Js/profile.js">    
+        </script>  
+      
+</body>
+</html>
+ 
