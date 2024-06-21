@@ -12,19 +12,19 @@
 <body> 
 
     <div class="navbar">
-        <a href="Thrifting.html" class="logo">
+        <a href="Thrifting.ejs" class="logo">
             <img src="/Images/logo.jpg" width="125px">
         </a>
         
         <div class="icons">
             <div class="two-btns">
-            <a href="register.html" class="nav-btn register-btn">Register</a>
+            <a href="register.ejs" class="nav-btn register-btn">Register</a>
             <a href="#" id="signin-btn" class="nav-btn signin-btn">Sign In</a>
             </div>
-            <a href="profile.html"><i class="far fa-user"></i></a>
-            <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
-            <a href="favorites.html"><i class="fas fa-heart"></i></a>
-            <a href="search.html"><i class="fa fa-filter"></i></a>
+            <a href="profile.ejs"><i class="far fa-user"></i></a>
+            <a href="cart.ejs"><i class="fas fa-shopping-cart"></i></a>
+            <a href="favorites.ejs"><i class="fas fa-heart"></i></a>
+            <a href="search.ejs"><i class="fa fa-filter"></i></a>
      
         </div>
         <div class="search-bar">
@@ -41,12 +41,12 @@
         <img src="/Images/homepage.jpg">
         <h2 class="categories-header">Shop By Category</h2>
         <div class="categories">
-            <a href="categories.html"><img src="/Images/ShopWomen.jpg" ></a>
-            <a href="categories.html"><img src="/Images/ShopMen.jpg" ></a>
-            <a href="categories.html"><img src="/Images/ShopGirls.jpg" ></a>
-            <a href="categories.html"><img src="/Images/ShopBoys.jpg" ></a>
-            <a href="categories.html"><img src="/Images/ShopBaby.jpg" ></a>
-            <a href="categories.html"><img src="/Images/ShopHome.jpg" ></a>
+            <a href="categories.ejs"><img src="/Images/ShopWomen.jpg" ></a>
+            <a href="categories.ejs"><img src="/Images/ShopMen.jpg" ></a>
+            <a href="categories.ejs"><img src="/Images/ShopGirls.jpg" ></a>
+            <a href="categories.ejs"><img src="/Images/ShopBoys.jpg" ></a>
+            <a href="categories.ejs"><img src="/Images/ShopBaby.jpg" ></a>
+            <a href="categories.ejs"><img src="/Images/ShopHome.jpg" ></a>
 
         </div>
     </div>
@@ -54,10 +54,10 @@
 
     <div class="sell-now">
         <img src="/Images/sell img.jpg" alt="Sell Now">
-        <a href="Sell.html" class="sell-button">Sell Now</a>
+        <a href="Sell.ejs" class="sell-button">Sell Now</a>
     </div>
     
-    <a class="aboutus" href="aboutus.html">ABOUT US</a>
+    <a class="aboutus" href="aboutus.ejs">ABOUT US</a>
     
     <div id="modal" class="modal">
         <div class="container">
@@ -76,7 +76,7 @@
 
                 <button type="submit">Log In</button>
     
-                <p>Don't have an account? <a href="register.html" id="signup1">Sign Up</a> </p>
+                <p>Don't have an account? <a href="register.ejs" id="signup1">Sign Up</a> </p>
                 
                
 
@@ -130,7 +130,7 @@
         modal.classList.remove('active');
         overlay.classList.remove('active');
 
-        window.location.href='profile.html';
+        window.location.href='profile.ejs';
 
            }else if(username===adminuser && password===adminpass){
              signinform.reset();
@@ -138,7 +138,7 @@
              modal.classList.remove('active');
              overlay.classList.remove('active');
 
-             window.location.href='Admin.html';
+             window.location.href='Admin.ejs';
            }
            
            else{
