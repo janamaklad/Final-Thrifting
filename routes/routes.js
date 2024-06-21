@@ -1,3 +1,5 @@
+const registerRoutes=require('./registerRoutes');
+
 function setupRoutes(app){
 
     app.get('/', (req, res) => {
@@ -137,7 +139,9 @@ function setupRoutes(app){
     });
     app.get('/women', (req, res) => {
         res.render('women', { title: 'Women Category' });
-    });    
+    }); 
+
+    app.use('/',registerRoutes); 
 }
 
 module.exports={

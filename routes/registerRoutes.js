@@ -1,8 +1,8 @@
 const signupControllers = require("../controllers/signupControllers");
 const express = require("express");
+const app=express();
 const bodyParser = require("body-parser");
-const router=express.Router();
-router.use(bodyParser.json());
-router.post("/signupControllers", signupControllers.signup);
 
-module.exports=router;
+app.post("/signup", signupControllers.registrationProcess);
+
+module.exports=app;
