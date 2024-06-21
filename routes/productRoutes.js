@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const app=express();
 const { AddProducts } = require('../controllers/product');
 const validateSellForm = require('../middleware/validateSellForm');
+const Product = require('../models/sellProduct');
 
-router.post('/add-product', validateSellForm, AddProducts);
+app.post('/add-product', validateSellForm, AddProducts);
 
-module.exports = router;
+module.exports = app;
