@@ -29,7 +29,7 @@ require('dotenv').config();
   next(); // Pass control to the next middleware function
 });
 
-// Setup routes using your routes module
+// Setup routes 
 routes.setupRoutes(app);
 
 const PORT = process.env.PORT || 3000;
