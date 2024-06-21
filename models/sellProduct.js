@@ -7,7 +7,7 @@ const productSchema = new Schema({
     size: { 
         type: String, 
         required: function() {
-            return ['women', 'men', 'girls', 'boys'].includes(this.category); //size field only required for these categories
+            return ['women', 'men', 'girls', 'boys','baby'].includes(this.category); //size field only required for these categories
         } 
     },
     condition: { type: String, required: true },
