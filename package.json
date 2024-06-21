@@ -1,10 +1,7 @@
 {
   "dependencies": {
-<<<<<<< HEAD
     "body-parse": "^0.1.0",
-=======
     "bcrypt": "^5.1.1",
->>>>>>> f2156a0c561da7618eda0fccb39f91bcbf408d55
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
