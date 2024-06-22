@@ -1,54 +1,87 @@
-const path = require('path');
-const Products = require('../models/sellProduct');
-const upload = require('../middleware/multer');
-const express=require('express');
-const { validationResult } = require('express-validator');
+import Product from "../models/product.js";
 
-const AddProducts = (req, res) => {
-    // Handle file upload with multer middleware
-    upload.fields([
-        { name: 'image1', maxCount: 1 },
-        { name: 'image2', maxCount: 1 }
-    ])(req, res, (err) => {
-        if (err) {
-            console.error('Multer error:', err);
-            return res.status(400).send('Error uploading files');
-        }
-
-        // sell form validation
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
-        }
-
-        // assuming only 1 file can be uploaded in each field
-        const image1 = req.files['image1'][0];
-        const image2 = req.files['image2'][0];
-
-        const newProduct = new Products({
-            category: req.body.category,
-            subCategory: req.body.subCategory,
-            size: req.body.size,
-            condition: req.body.condition,
-            brand: req.body.brand,
-            price: req.body.price,
-            details: req.body.details,
-            image1: image1.path,
-            image2: image2.path
-        });
-
-        newProduct.save()
-            .then((result) => {
-                console.log('Product added:', result);
-                res.status(201).send('Product added successfully');
-            })
-            .catch((err) => {
-                console.error('Error saving product:', err);
-                res.status(500).send('Error adding product');
-            });
-    });
+const createProduct_post = async (req, res) => {
+  try {
+    const product = new Product(req.body);
+    await product.save();
+    res.status(201).send(product);
+  } catch (error) {
+    res.status(400).send(error);
+  }
 };
 
-module.exports = {
-    AddProducts
+const getProducts_get = async (req, res) => {
+  try {
+    const products = await Product.find();
+    res.status(200).send(products);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+const getProductsById_get = async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    if (!product) {
+      return res.status(404).send();
+    }
+    res.status(200).send(product);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+const updateProduct_put = async (req, res) => {
+  const updates = Object.keys(req.body);
+  const allowedUpdates = [
+    "category",
+    "subCategory",
+    "size",
+    "status",
+    "brand",
+    "price",
+    "details",
+    "images",
+    "user",
+  ];
+  const isValidOperation = updates.every((update) =>
+    allowedUpdates.includes(update)
+  );
+
+  if (!isValidOperation) {
+    return res.status(400).send({ error: "Invalid updates!" });
+  }
+
+  try {
+    const product = await Product.findById(req.params.id);
+    if (!product) {
+      return res.status(404).send();
+    }
+
+    updates.forEach((update) => (product[update] = req.body[update]));
+    await product.save();
+    res.send(product);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+};
+
+const deleteProduct_delete = async (req, res) => {
+  try {
+    const product = await Product.findByIdAndDelete(req.params.id);
+    if (!product) {
+      return res.status(404).send();
+    }
+    res.send(product);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+export {
+  createProduct_post,
+  getProducts_get,
+  getProductsById_get,
+  updateProduct_put,
+  deleteProduct_delete,
 };
