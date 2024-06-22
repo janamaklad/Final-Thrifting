@@ -1,8 +1,8 @@
-const signupControllers = require("../controllers/signupControllers");
-const express = require("express");
-const app=express();
-const bodyParser = require("body-parser");
+import express from "express";
+import { signup_post, login_post } from "../controllers/register.js";
+const router = express.Router();
 
-app.post("/signup", signupControllers.registrationProcess);
+router.post("/signup", signup_post);
+router.post("/login", login_post);
 
-module.exports=app;
+export default router;
