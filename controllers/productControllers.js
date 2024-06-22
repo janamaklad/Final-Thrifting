@@ -1,13 +1,5 @@
 const Product = require('../models/sellProduct');
 
-exports.getProducts = async (req, res) => {
-    try {
-        const products = await Product.find();
-        res.status(200).json(products);
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-    }
-};
 
 exports.getProduct = async (req, res) => {
     try {
@@ -39,7 +31,7 @@ exports.updateProduct = async (req, res) => {
     try {
         const product = await Product.findByIdAndUpdate(
             req.params.id,
-            { name, description, price, imageUrl },
+            { name, description, price },
             { new: true, runValidators: true }
         );
         if (!product) {
