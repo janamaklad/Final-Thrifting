@@ -47,8 +47,5 @@ const userSchema = new Schema({
 
 const User = model("User", userSchema);
 
-<<<<<<< HEAD
 export default User;
-=======
-export default User;
->>>>>>> origin/main
+
