@@ -1,5 +1,5 @@
 const registerRoutes=require('./registerRoutes');
-
+const productRoutes=require('./productRoutes');
 function setupRoutes(app){
 
     app.get('/', (req, res) => {
@@ -142,6 +142,7 @@ function setupRoutes(app){
     }); 
 
     app.use('/',registerRoutes); 
+    app.use('/',productRoutes); 
 }
 
 module.exports={
