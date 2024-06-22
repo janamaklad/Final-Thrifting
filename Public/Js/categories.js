@@ -14,14 +14,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
      var subcategoriesContent={
         'women': `  <div class="subcategories">
-            <div class="subcategory">   <a href="women.html"><img src="/Images/topswomenFF.jpg" alt="tops"></a> <h2>Tops</h2> </div>
-            <div class="subcategory">  <a href="women.html"><img src="/Images/bottomswomenFF.jpg" alt="bottoms">  </a> <h2>Bottoms</h2> </div>
-            <div class="subcategory">  <a href="women.html"> <img src="/Images/dressesFF.jpg" alt="dresses">  </a> <h2>Dresses</h2>  </div>
-            <div class="subcategory">  <a href="women.html"> <img src="/Images/jacketswomenFF.jpg" alt="jackets"> </a> <h2>Jackets & Coats</h2> </div>
-            <div class="subcategory">  <a href="women.html"> <img src="/Images/sportswearFF.jpg" alt="sportswear"></a> <h2>SportsWear</h2> </div>
-            <div class="subcategory"> <a href="women.html"><img src="/Images/shoes2womenFF.jpg" alt="shoes"> </a> <h2>Shoes</h2> </div>
-            <div class="subcategory">  <a href="women.html"><img src="/Images/bagswomenFF.jpg" alt="bags"></a><h2>Bags</h2> </div>
-            <div class="subcategory"> <a href="women.html"><img src="/Images/accessoriesFF.jpg" alt="accessories"> </a><h2>Accessories</h2> </div>
+            <div class="subcategory">   <a href="/women"><img src="/Images/topswomenFF.jpg" alt="tops"></a> <h2>Tops</h2> </div>
+            <div class="subcategory">  <a href="/women"><img src="/Images/bottomswomenFF.jpg" alt="bottoms">  </a> <h2>Bottoms</h2> </div>
+            <div class="subcategory">  <a href="/women"> <img src="/Images/dressesFF.jpg" alt="dresses">  </a> <h2>Dresses</h2>  </div>
+            <div class="subcategory">  <a href="/women"> <img src="/Images/jacketswomenFF.jpg" alt="jackets"> </a> <h2>Jackets & Coats</h2> </div>
+            <div class="subcategory">  <a href="/women"> <img src="/Images/sportswearFF.jpg" alt="sportswear"></a> <h2>SportsWear</h2> </div>
+            <div class="subcategory"> <a href="/women"><img src="/Images/shoes2womenFF.jpg" alt="shoes"> </a> <h2>Shoes</h2> </div>
+            <div class="subcategory">  <a href="/women"><img src="/Images/bagswomenFF.jpg" alt="bags"></a><h2>Bags</h2> </div>
+            <div class="subcategory"> <a href="/women"><img src="/Images/accessoriesFF.jpg" alt="accessories"> </a><h2>Accessories</h2> </div>
            
         </div>`
         ,
