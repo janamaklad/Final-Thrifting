@@ -1,45 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="/Css/Admin.css">
-    <link rel="icon" href="/Images/favicon.png" type="image/png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/Css/Admin.css" />
+    <link rel="icon" href="/Images/favicon.png" type="image/png" />
     <title>Second Chance</title>
-</head>
-<body> 
-
+  </head>
+  <body>
     <div class="navbar">
-        <a href="/admin" class="logo">
-            <img src="/Images/logo.jpg" width="125px">
-        </a>
-        
-        <div class="search-bar">
-            <form action="#">
-                <input type="search" placeholder="Search..." name="search">
-                <button type="submit"><i class="fas fa-search"></i></button>
-            </form>
-        </div>
+      <a href="/admin" class="logo">
+        <img src="/Images/logo.jpg" width="125px" />
+      </a>
+
+      <div class="search-bar">
+        <form action="#">
+          <input type="search" placeholder="Search..." name="search" />
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+      </div>
     </div>
 
     <div class="buttons-container">
-        <button onclick="location.href='/dashboard'">Dashboard</button>
-        <button onclick="location.href='/Sell'">Add Product</button>
-        <button onclick="location.href='/Thrifting'">See Website from User View</button>
+      <button onclick="location.href='/admin/<%=user._id%>/dashboard'">
+        Dashboard
+      </button>
+      <button onclick="location.href='/admin/<%=user._id%>/sell'">
+        Add Product
+      </button>
     </div>
 
     <div class="categories-container">
-        <h2 class="categories-header">View By Category</h2>
-        <div class="categories">
-            <a href="/AdminWomen"><img src="/Images/ShopWomen.jpg" ></a>
-            <a href="/AdminMen"><img src="/Images/ShopBaby.jpg" ></a>
-            <a href="/AdminGirls"><img src="/Images/ShopGirls.jpg" ></a>
-            <a href="/AdminBoys"><img src="/Images/ShopBoys.jpg" ></a>
-            <a href="/AdminBaby"><img src="/Images/ShopBaby.jpg" ></a>
-            <a href="/AdminHome"><img src="/Images/ShopHome.jpg" ></a>
-        </div>
+      <h2 class="categories-header">View By Category</h2>
+      <div class="categories">
+        <a href="/admin/<%=user._id%>/AdminWomen"><img src="/Images/ShopWomen.jpg" /></a>
+        <a href="/admin/<%=user._id%>/AdminMen"><img src="/Images/ShopMen.jpg" /></a>
+        <a href="/admin/<%=user._id%>/AdminGirls"><img src="/Images/ShopGirls.jpg" /></a>
+        <a href="/admin/<%=user._id%>/AdminBoys"><img src="/Images/ShopBoys.jpg" /></a>
+        <a href="/admin/<%=user._id%>/AdminBaby"><img src="/Images/ShopBaby.jpg" /></a>
+        <a href="/admin/<%=user._id%>/AdminHome"><img src="/Images/ShopHome.jpg" /></a>
+      </div>
     </div>
-            
-</body>
+  </body>
 </html>

@@ -1,5 +1,5 @@
-const registerRoutes=require('./registerRoutes');
-const productRoutes=require('./productRoutes');
+const registerRoutes=require('./register');
+const productRoutes=require('./product');
 function setupRoutes(app){
 
     app.get('/', (req, res) => {

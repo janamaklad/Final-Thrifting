@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Page</title>
+    <link rel="icon" href="/Images/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="/Css/register.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+    </style>
+  </head>
+  <body>
+    <video autoplay loop muted class="vid-backgrnd">
+      <source src="/Videos/vid3.mp4" type="video/mp4" />
+    </video>
+
+    <div class="container">
+      <h2>Registration Form</h2>
+      <form id="registration-form">
+        <div class="form-group">
+          <input type="text" id="fname" name="firstName" />
+          <label for="fname">First Name</label>
+        </div>
+        <div class="form-group">
+          <input type="text" id="lname" name="lastName" />
+          <label for="lname">Last Name</label>
+        </div>
+        <div class="form-group">
+          <input type="text" id="username" name="username" />
+          <label for="username">Username</label>
+        </div>
+        <div class="form-group">
+          <input type="text" id="email" name="email" />
+          <label for="email">E-mail</label>
+        </div>
+        <div class="form-group">
+          <input type="text" id="num" name="phoneNumber" />
+          <label for="num">Phone Number</label>
+        </div>
+        <div class="form-group">
+          <input type="password" id="password" name="password" />
+          <label for="password">Password</label>
+        </div>
+        <div class="form-group">
+          <input type="password" id="confirmPassword" name="confirmPassword" />
+          <label for="confirmPassword">Confirm Password</label>
+        </div>
+        <button type="submit">CREATE ACCOUNT</button>
+      </form>
+    </div>
+    <script src="/Js/register.js"></script>
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script type="module">
+      import showMsg from "/js/toastify.js";
+
+      document
+        .getElementById("registration-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const form = new FormData(this);
+          const firstName = form.get("firstName");
+          const lastName = form.get("lastName");
+          const username = form.get("username");
+          const email = form.get("email");
+          const phoneNumber = form.get("phoneNumber");
+          const password = form.get("password");
+          const confirmPassword = form.get("confirmPassword");
+
+          if (
+            !firstName ||
+            !lastName ||
+            !username ||
+            !email ||
+            !phoneNumber ||
+            !password ||
+            !confirmPassword
+          ) {
+            showMsg("All fields are required.", "red");
+            return;
+          }
+
+          if (!validator.isEmail(email)) {
+            showMsg("Please enter a valid email address.", "red");
+            return;
+          }
+
+          const egyptianPhoneNumberRegex = /^(010|011|012|015)[0-9]{8}$/;
+          if (!egyptianPhoneNumberRegex.test(phoneNumber)) {
+            showMsg("Please enter a valid Egyptian phone number.", "red");
+            return;
+          }
+
+          if (
+            !validator.isStrongPassword(password, {
+              minLength: 8,
+              minLowercase: 1,
+              minUppercase: 1,
+              minNumbers: 1,
+            })
+          ) {
+            showMsg(
+              "Password must be at least 8 characters long and contain a combination of uppercase, lowercase, and numeric characters.",
+              "red"
+            );
+            return;
+          }
+
+          if (password !== confirmPassword) {
+            showMsg(
+              "Passwords do not match. Please re-enter your passwords.",
+              "red"
+            );
+            return;
+          }
+
+          const jsonData = {};
+          form.forEach((value, key) => {
+            jsonData[key] = value;
+          });
+
+          fetch("/signup", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(jsonData),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.err) {
+                showMsg(data.err, "red");
+              } else {
+                showMsg("Account created successfully", "green");
+                location.assign("/");
+              }
+            })
+            .catch((error) => {
+              showMsg("Error: " + error, "red");
+            });
+        });
+    </script>
+  </body>
+</html>
