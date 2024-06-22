@@ -2,9 +2,18 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const session = require("express-session");
-const routes = require("./routes/routes"); // Assuming this is your routes file
+const routes = require("./routes/routes"); 
+const productRoutes = require('./routes/productRoutes');
 const app = express();
 
+mongoose.connect('mongodb://localhost:27017/yourdatabase', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => console.log('MongoDB connected...'))
+  .catch(err => console.log(err));
+
+app.use('/', productRoutes);
 // Middleware setup
 app.use(express.static("public", { maxAge: "7d" }));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -34,7 +43,7 @@ routes.setupRoutes(app);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log('Server running on http://localhost:${PORT}');
 });
 
 
