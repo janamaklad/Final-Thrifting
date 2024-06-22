@@ -1,161 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="/Css/Thrifting.css">
-    <link rel="stylesheet" href="/Css/signin.css">
-    <link rel="icon" href="../favicon.png" type="image/png">
-    <title>Second Chance</title>
-</head>
-<body> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/Css/Thrifting.css" />
+    <link rel="stylesheet" href="/Css/signin.css" />
+    <link rel="icon" href="../favicon.png" type="image/png" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
 
+    <title>Second Chance</title>
+  </head>
+  <body>
     <div class="navbar">
-        <a href="/Thrifting" class="logo">
-            <img src="/Images/logo.jpg" width="125px">
-        </a>
-        
-        <div class="icons">
-            <div class="two-btns">
-            <a href="/register" class="nav-btn register-btn">Register</a>
-            <a href="#" id="signin-btn" class="nav-btn signin-btn">Sign In</a>
-            </div>
-            <a href="/profile"><i class="far fa-user"></i></a>
-            <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
-            <a href="/favorites.ejs"><i class="fas fa-heart"></i></a>
-            <a href="/search"><i class="fa fa-filter"></i></a>
-     
+      <a href="/Thrifting" class="logo">
+        <img src="/Images/logo.jpg" width="125px" alt="Second Chance Logo" />
+      </a>
+
+      <div class="icons">
+        <div class="two-btns">
+          <a href="/signup" class="nav-btn register-btn">Register</a>
+          <a href="#" id="signin-btn" class="nav-btn signin-btn">Sign In</a>
         </div>
-        <div class="search-bar">
-            <form  action="#">
-                <input type="search" placeholder="Search..." name="search">
-                <button type="submit" i class="fas fa-search"></i></button>
-        
-            </form>
-        </div>
-       
+        <a href="/profile"><i class="far fa-user"></i></a>
+        <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
+        <a href="/favorites"><i class="fas fa-heart"></i></a>
+        <a href="/search"><i class="fa fa-filter"></i></a>
+      </div>
+      <div class="search-bar">
+        <form action="#">
+          <input type="search" placeholder="Search..." name="search" />
+          <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+      </div>
     </div>
 
     <div class="center-pic">
-        <img src="/Images/homepage.jpg">
-        <h2 class="categories-header">Shop By Category</h2>
-        <div class="categories">
-            <a href="/categories"><img src="/Images/ShopWomen.jpg" ></a>
-            <a href="/categories"><img src="/Images/ShopMen.jpg" ></a>
-            <a href="/categories"><img src="/Images/ShopGirls.jpg" ></a>
-            <a href="/categories"><img src="/Images/ShopBoys.jpg" ></a>
-            <a href="/categories"><img src="/Images/ShopBaby.jpg" ></a>
-            <a href="/categories"><img src="/Images/ShopHome.jpg" ></a>
-
-        </div>
+      <img src="/Images/homepage.jpg" alt="Homepage Image" />
+      <h2 class="categories-header">Shop By Category</h2>
+      <div class="categories">
+        <a href="/categories"
+          ><img src="/Images/ShopWomen.jpg" alt="Shop Women"
+        /></a>
+        <a href="/categories"
+          ><img src="/Images/ShopMen.jpg" alt="Shop Men"
+        /></a>
+        <a href="/categories"
+          ><img src="/Images/ShopGirls.jpg" alt="Shop Girls"
+        /></a>
+        <a href="/categories"
+          ><img src="/Images/ShopBoys.jpg" alt="Shop Boys"
+        /></a>
+        <a href="/categories"
+          ><img src="/Images/ShopBaby.jpg" alt="Shop Baby"
+        /></a>
+        <a href="/categories"
+          ><img src="/Images/ShopHome.jpg" alt="Shop Home"
+        /></a>
+      </div>
     </div>
-
 
     <div class="sell-now">
-        <img src="/Images/sell img.jpg" alt="Sell Now">
-        <a href="/Sell" class="sell-button">Sell Now</a>
+      <img src="/Images/sell img.jpg" alt="Sell Now" />
+      <a href="/Sell" class="sell-button">Sell Now</a>
     </div>
-    
+
     <a class="aboutus" href="/aboutus">ABOUT US</a>
-    
+
     <div id="modal" class="modal">
-        <div class="container">
-            <h2>Welcome back!</h2>
-            <form id="signin">
-                <div class="form-group">
-                   
-                    <input type="text" id="username" name="username" required placeholder="Username">
-                </div>
-                <div class="form-group">
-                 
-                    <input type="password" id="password" name="password" required placeholder="Password">
-                </div>
-                <div id="error-message" class="error-message"></div>
-               
+      <div class="container">
+        <h2>Welcome back!</h2>
+        <form id="signin">
+          <div class="form-group">
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Username"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+            />
+          </div>
+          <button type="submit">Log In</button>
+          <p>
+            Don't have an account? <a href="/register" id="signup1">Sign Up</a>
+          </p>
+        </form>
+      </div>
+    </div>
+    <div id="overlay" class="overlay"></div>
 
-                <button type="submit">Log In</button>
-    
-                <p>Don't have an account? <a href="/register" id="signup1">Sign Up</a> </p>
-                
-               
-
-            </form>
-        </div>
-        </div>
-        <div id="overlay" class="overlay"></div>
-    
     <script>
-    document.getElementById('signup1').addEventListener('click',function(event){
-    event.preventDefault();
-    window.location.href='register.html';
-    });
-    
-    document.addEventListener('DOMContentLoaded', function() {
-    const signinform = document.getElementById('signin');
-    
-    const signinbtn=document.getElementById('signin-btn');
-    const modal= document.getElementById('modal');
-    const overlay= document.getElementById('overlay');
+      document.addEventListener("DOMContentLoaded", function () {
+        const signinform = document.getElementById("signin");
+        const signinbtn = document.getElementById("signin-btn");
+        const modal = document.getElementById("modal");
+        const overlay = document.getElementById("overlay");
 
-    const correctuser='user22';
-    const correctpass='12345';
+        signinbtn.addEventListener("click", function (event) {
+          event.preventDefault();
+          modal.classList.add("active");
+          overlay.classList.add("active");
+        });
 
-    const adminuser='admin22';
-    const adminpass='54321';
-    
-    const errormsg=document.getElementById('error-message');
-
-    signinbtn.addEventListener('click', function(event) {
-        event.preventDefault();
-    
-    
-        modal.classList.add('active');
-        overlay.classList.add('active');
-    
-    });
-    
-    signinform.addEventListener('submit',function(event){
-        event.preventDefault();
-    
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        console.log('Username:', username);
-        console.log('Password:', password);
-    
-           if(username=== correctuser && password=== correctpass){
-
-        signinform.reset(); 
-        
-        modal.classList.remove('active');
-        overlay.classList.remove('active');
-
-        window.location.href='profile.ejs';
-
-           }else if(username===adminuser && password===adminpass){
-             signinform.reset();
-
-             modal.classList.remove('active');
-             overlay.classList.remove('active');
-
-             window.location.href='Admin.ejs';
-           }
-           
-           else{
-            errormsg.textContent='Incorrect Username or Password*';
-           }
-    });
-    
-    overlay.addEventListener('click', function(){
-        modal.classList.remove('active');
-        overlay.classList.remove('active');
-    });
-    });
-    
-    
+        overlay.addEventListener("click", function () {
+          modal.classList.remove("active");
+          overlay.classList.remove("active");
+        });
+      });
     </script>
-      <script src="/Js/search.js"></script>
-      <script src="/Js/categories.js"></script>
 
-</body>
+    <script src="https://unpkg.com/validator@latest/validator.min.js"></script>
+    <script type="module">
+      import showMsg from "/js/toastify.js";
+      document
+        .getElementById("signin")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+
+          if (!username || !password) {
+            showMsg("All fields are required.", "red");
+            return;
+          }
+
+          fetch("/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username, password }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.err) return showMsg(data.err, "red");
+              else location.assign(`/${data.user.role}/${data.user._id}`);
+            })
+            .catch((error) => {
+              showMsg("Error: " + error, "red");
+            });
+        });
+    </script>
+
+    <script src="/Js/search.js"></script>
+    <script src="/Js/categories.js"></script>
+  </body>
 </html>
