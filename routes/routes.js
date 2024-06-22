@@ -141,8 +141,7 @@ function setupRoutes(app){
         res.render('women', { title: 'Women Category' });
     }); 
 
-    app.use('/',registerRoutes); 
-    app.use('/',productRoutes); 
+  
 }
 
 module.exports={
