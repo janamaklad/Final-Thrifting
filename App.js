@@ -1,44 +1,19 @@
-const mongoose=require("mongoose");
-const express = require("express");
-const path = require("path");
-const bodyParser = require("body-parser");
-const session = require("express-session");
-const routes = require("./routes/routes"); // Assuming this is your routes file
+import express from "express";
+import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
+import dotenv from "dotenv";
+import routes from "./routes/routes.js";
+dotenv.config();
+
 const app = express();
 
-// Middleware setup
-app.use(express.static("public", { maxAge: "7d" }));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
+app.use(express.static("public")); // to read static files (css ,js ,img)
+app.use(express.json()); // to read req.body
+app.use(express.urlencoded({ extended: true })); // to read req.body
+app.use(cookieParser());
+app.set("view engine", "ejs"); // to set view engine to ejs
 
-require('dotenv').config();
-
-  // Session setup
-  app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: true,
-    saveUninitialized: true
-  })
-);
-
-  // Custom middleware
-  app.use(function(req, res, next) {
-  console.log('Middleware function');
-  next(); // Pass control to the next middleware function
-});
-
-// Setup routes using your routes module
-routes.setupRoutes(app);
-
-mongoose.connect(process.env.MONGODB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
-    .then(() => console.log("MongoDB connected"))
-    .catch((err) => console.error("MongoDB connection error:", err));
+app.use(routes);
 
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI;
