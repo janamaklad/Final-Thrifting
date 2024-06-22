@@ -1,4 +1,6 @@
 // loginController.js
+const express = require('express');
+const bodyParser = require('body-parser'); // Optional, for Express versions prior to 4.16.0
 const User = require("../models/userModel.js"); // Assuming you have a User model defined
 const bcrypt = require("bcrypt");
 
