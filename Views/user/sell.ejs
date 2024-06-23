@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sell</title>
+    <link rel="stylesheet" href="/css/sell.css" />
+  </head>
+  <body>
+    <h1>Create Listing</h1>
+
+    <form id="sellForm" enctype="multipart/form-data">
+      <label for="category">Category:</label>
+      <select id="category" name="category" required>
+        <option value="">Select Category</option>
+        <option value="women">Women</option>
+        <option value="men">Men</option>
+        <option value="girls">Girls</option>
+        <option value="boys">Boys</option>
+        <option value="baby">Baby</option>
+        <option value="home">Home</option>
+      </select>
+
+      <label for="subCategory">Subcategory:</label>
+      <select id="subCategory" name="subCategory" required>
+        <option value="">Select Subcategory</option>
+      </select>
+
+      <label for="status">status:</label>
+      <select id="status" name="status" required>
+        <option value="">Select status</option>
+        <option value="new">New</option>
+        <option value="used">Used</option>
+      </select>
+
+      <label for="brand">Brand:</label>
+      <input
+        type="text"
+        id="brand"
+        name="brand"
+        placeholder="Enter Brand Name"
+        required
+      />
+
+      <label for="price">Price:</label>
+      <input
+        type="text"
+        id="price"
+        name="price"
+        placeholder="Enter Price (EGP)"
+        required
+      />
+      <span id="priceError" style="color: red; display: none"></span>
+
+      <label for="details">Details:</label>
+      <textarea
+        id="details"
+        name="details"
+        rows="2"
+        placeholder="Enter Details"
+        required
+      ></textarea>
+
+      <label for="image1">Image 1:</label>
+      <input type="file" id="image1" name="image1" accept="image/*" required />
+
+      <label for="image2">Image 2:</label>
+      <input type="file" id="image2" name="image2" accept="image/*" required />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script src="/Js/Sell.js"></script>
+    <script>
+      document
+        .getElementById("sellForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const formData = new FormData(this);
+
+          const data = {};
+          formData.forEach((value, key) => {
+            data[key] = value;
+          });
+
+          fetch("/user/<%= user._id %>/sell", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Network response was not ok");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              console.log("Success:", data);
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        });
+    </script>
+  </body>
+</html>

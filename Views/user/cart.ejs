@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/Css/cart.css" />
+    <link rel="icon" href="../favicon.png" type="image/png" />
+    <title>Your Cart</title>
+  </head>
+  <body>
+    <%- include("../components/UserNavBar.ejs")%>
+    <br /><br /><br />
+    <section class="cart-container">
+      <div class="cart-details">
+        <div class="info-banner">
+          <p><strong>FREE Returns</strong> Now Available Online!</p>
+        </div>
+        <div class="items">
+          <a href="beij_denim_detail.html">
+            <div class="product">
+              <img src="/Images/beij pants1.PNG" />
+              <div class="product-details">
+                <h2>beij Denim</h2>
+                <p>Price: 450 LE</p>
+                <p>Brand: Zara</p>
+                <p>Size: 34 EUR</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="order-summary">
+        <h2>Order Summary</h2>
+        <div class="promo-code">
+          <input type="text" placeholder="Promo Code" />
+          <button>DONE</button>
+        </div>
+        <div class="summary-details">
+          <p>Subtotal: <span>EGP 1700.00</span></p>
+          <p>Order Total: <span>EGP 1700.00</span></p>
+        </div>
+        <a href="checkout" class="checkout">CONTINUE TO CHECKOUT</a>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<nav>
+  <a href="/admin/<%= user._id %>" class="logo">
+    <img src="/Images/logo.jpg" width="125px" />
+  </a>
+  <% if (nav !== false) { %>
+
+  <ul>
+    <li><a href="/admin/<%= user._id %>/<%= nav %>"> View <%= nav %> </a></li>
+    <li>
+      <a href="/admin/<%= user._id %>/add/<%= nav %>"> Add <%= nav %> </a>
+    </li>
+    <li><a href="/logout"> Log out</a></li>
+  </ul>
+  <% } %>
+</nav>
+
+<style>
+  nav {
+    background-color: white;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+  }
+</style>

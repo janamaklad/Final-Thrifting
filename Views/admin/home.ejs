@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <link rel="icon" href="/Images/favicon.png" type="image/png" />
+    <title>Second Chance</title>
+  </head>
+  <body>
+    <%- include("../components/AdminNavBar.ejs") %>
+    <div class="buttons-container">
+      <button onclick="location.href='/admin/<%=user._id%>/user'">
+        Users
+      </button>
+      <button onclick="location.href='/admin/<%=user._id%>/product'">
+        Products
+      </button>
+    </div>
+  </body>
+</html>

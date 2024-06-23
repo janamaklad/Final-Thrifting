@@ -1,0 +1,31 @@
+<nav class="navbar">
+  <a href="/user/<%= user._id %>" class="logo">
+    <img src="/Images/logo.jpg" width="125px" />
+  </a>
+
+  <div class="icons">
+    <a href="/user/<%= user._id %>/profile"><i class="far fa-user"></i></a>
+    
+    <a href="/user/<%= user._id %>/cart"
+      ><i class="fas fa-shopping-cart"></i
+    ></a>
+  </div>
+
+  <div class="search-bar">
+    <form action="#">
+      <input type="search" placeholder="Search..." name="search" />
+      <button type="submit"><i class="fas fa-search"></i></button>
+    </form>
+  </div>
+
+  <% if (title === "shop") { %>
+  <div class="categories">
+    <a href="#" class="category" data-category="women">Women</a>
+    <a href="#" class="category" data-category="men">Men</a>
+    <a href="#" class="category" data-category="girls">Girls</a>
+    <a href="#" class="category" data-category="boys">Boys</a>
+    <a href="#" class="category" data-category="baby">Baby</a>
+    <a href="#" class="category" data-category="home">Home</a>
+  </div>
+  <% } %>
+</nav>
