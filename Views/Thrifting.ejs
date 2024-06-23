@@ -153,7 +153,7 @@
             .then((response) => response.json())
             .then((data) => {
               if (data.err) return showMsg(data.err, "red");
-              else location.assign(`/${data.user.role}/${data.user._id}`);
+              else location.assign(`/`);
             })
             .catch((error) => {
               showMsg("Error: " + error, "red");
