@@ -143,31 +143,6 @@
     }
 
     fetch("/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, password }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.err) return showMsg(data.err, "red");
-
-        // Check the role and redirect accordingly
-        if (data.role === 'admin') {
-          location.assign('/admin');
-        } else {
-          location.assign('/');
-        }
-      })
-      .catch((error) => {
-        showMsg("Error: " + error, "red");
-      });
-  });
-</script>
-
-<<<<<<< HEAD
-          fetch("/login", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -183,9 +158,10 @@
               showMsg("Error: " + error, "red");
             });
         });
+</script>
+
+
     </script>
-=======
->>>>>>> bbf6abe445c461df7670137132071b81862900a7
 
     <script src="/Js/search.js"></script>
     <script src="/Js/categories.js"></script>
