@@ -6,10 +6,6 @@ const productSchema = new Schema({
     type: String,
     required: [true, "Category is required"],
   },
-  subCategory: {
-    type: String,
-    required: [true, "Sub-category is required"],
-  },
   size: {
     type: String,
   },

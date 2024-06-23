@@ -101,21 +101,24 @@ export const login_post = async (req, res) => {
   try {
     const founduser = await User.findOne({ username });
 
+    if (!founduser)
+      return res.status(401).json({ err: "Wrong username or password" });
+
     const isPasswordValid = bcrypt.compareSync(password, founduser.password);
 
-    if (!founduser || !isPasswordValid)
+    if (!isPasswordValid)
       return res.status(401).json({ err: "Wrong username or password" });
 
     const token = jwt.sign({ user: founduser }, process.env.JWT_SECRET_PHRASE, {
-      expiresIn: 3 * 24 * 60 * 60, //3 days
+      expiresIn: 3 * 24 * 60 * 60, // 3 days
     });
 
     res.cookie("jwt", token, {
       httpOnly: true,
-      maxAge: 3 * 24 * 60 * 60 * 1000, //3 days
+      maxAge: 3 * 24 * 60 * 60 * 1000, // 3 days
     });
 
-    res.status(200).json({ user: founduser });
+    res.status(200).json({ user: founduser, role: founduser.role }); // Include role in response
   } catch (err) {
     console.log(err);
     res.status(500).json({ err: err });
