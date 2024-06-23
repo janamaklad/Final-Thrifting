@@ -4,13 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Products</title>
-    <link rel="stylesheet" href="/Css/viewusers.css"> <!-- Adjust the path as per your project structure -->
+   
+    <link rel="stylesheet" href="/Css/products.css"> <!-- Adjust the path as per your project structure -->
 </head>
 <body>
+    <div class="navbar">
+        <a href="Thrifting.html" class="logo">
+            <img src="/Images/logo.jpg" width="125px">
+        </a>
+    
+        <div class="icons">
+            <a href="#profile"><i class="far fa-user"></i></a>
+            <a href="#Cart"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#favorites"><i class="fas fa-heart"></i></a>
+        </div>
+        
+    
+        <div class="search-bar">
+            <form action="#">
+                <input type="search" placeholder="Search..." name="search">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+    
     <div class="products">
         <% products.forEach(product => { %>
             <div class="product">
-                <img src="/Images/<%= product.image %>" alt="Product img"> <!-- Replace with actual image path from database -->
+                <img src="/Images/<%= product.image %>" alt="Product img">
+                <!-- Replace with actual image path from database -->
                 <div class="product-details">
                     <h4><%= product.category %></h4>
                     <p>Price: <%= product.price %> LE</p>
