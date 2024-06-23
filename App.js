@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import routes from "./routes/routes.js";
-/*import user from "./models/user.js"*/
+import user from "./models/user.js"
 import product from "./models/product.js"
 
 
