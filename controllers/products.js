@@ -1,6 +1,8 @@
 import Product from "../models/product.js";
+import User from "../models/user.js";
 
 const createProduct_post = async (req, res) => {
+  if (!req.body.user)   req.body.user = await User.findById(req.params.id);
   try {
     const product = new Product(req.body);
     await product.save();
