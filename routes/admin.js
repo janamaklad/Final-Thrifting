@@ -1,29 +1,31 @@
 import express from "express";
 import User from "../models/user.js";
-import { fillForm_get, addProduct_post } from "../controllers/admin.js";
+import Product from "../models/product.js";
 
 const router = express.Router();
 
-router.post("/Sell", fillForm_get);
-router.post("/addProduct", addProduct_post );
-
 router.get("/:id", async (req, res) => {
-  res.render("admin", {
+  res.render("admin/home", {
     title: "Second Chance",
+    nav: false,
     user: await User.findById(req.params.id),
   });
 });
 
-router.get("/:id/dashboard", async (req, res) => {
-  res.render("dashboard", {
+router.get("/:id/user", async (req, res) => {
+  res.render("admin/users", {
     title: "Admin Dashboard",
+    nav: "user",
+    users: await User.find(),
     user: await User.findById(req.params.id),
   });
 });
 
-router.get("/:id/sell", async (req, res) => {
-  res.render("Sell", {
-    title: "Sell",
+router.get("/:id/product", async (req, res) => {
+  res.render("admin/products", {
+    title: "Products",
+    nav: "product",
+    products: await Product.find(),
     user: await User.findById(req.params.id),
   });
 });
