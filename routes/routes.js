@@ -11,6 +11,9 @@ router.use("/admin", adminAuth, adminRoutes);
 router.get("/", (req, res) => {
   res.render("Thrifting", { title: "Second Chance" });
 });
+router.get("/admin", (req, res) => {
+  res.render("/admin", { title: "Second Chance" });
+});
 
 router.get("/signup", (req, res) => {
   res.render("signup", { title: "Registration" });
