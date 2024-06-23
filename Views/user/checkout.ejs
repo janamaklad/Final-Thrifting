@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="/css/checkout.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Checkout Form</h2>
+      <form id="checkout-form">
+        <div class="delivery">
+          <h3>Delivery</h3>
+          <div class="form-group">
+            <label for="country">Country</label>
+            <select id="country" name="country">
+              <option value="egypt">Egypt</option>
+            </select>
+          </div>
+          <br />
+          <div class="form-group">
+            <input type="text" id="address" name="address" required />
+            <label for="address">Address</label>
+          </div>
+          <br />
+          <div class="form-group">
+            <input type="text" id="apartment" name="apartment" />
+            <label for="apartment">Apartment, suite, etc. (optional)</label>
+          </div>
+          <br />
+          <div class="form-group">
+            <input type="text" id="city" name="city" required />
+            <label for="city">City</label>
+          </div>
+        </div>
+        <div id="payment-options">
+          <h3>Payment Method</h3>
+          <div class="form-group">
+            <input
+              type="radio"
+              name="payment"
+              id="cash-radio"
+              onclick="showPaymentForm('cash')"
+            />
+            <label for="cash-radio">Cash</label>
+          </div>
+          <div class="form-group">
+            <input
+              type="radio"
+              name="payment"
+              id="visa-radio"
+              onclick="showPaymentForm('visa-content')"
+            />
+            <label for="visa-radio">Visa</label>
+          </div>
+        </div>
+
+        <div id="cash" class="payment-content" style="display: none">
+          <p>Please have the exact amount ready at delivery.</p>
+        </div>
+
+        <div id="visa-content" class="payment-content" style="display: none">
+          <div class="form-header">
+            <img src="/Images/visaCard.jpeg" class="visaCard" alt="Visa Card" />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="cardNumber"
+              placeholder="Card Number"
+              name="cardNumber"
+              maxlength="16"
+              size="16"
+              required
+            />
+            <label for="cardNumber">Card Number</label>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="fullName"
+              placeholder="Full Name"
+              name="fullName"
+              required
+            />
+            <label for="fullName">Full Name</label>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="expiration"
+              name="expiration"
+              placeholder="MM / YY"
+              maxlength="5"
+              size="5"
+              required
+            />
+            <label for="expiration">Expiration Date</label>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="cvc"
+              placeholder="CVC"
+              name="cvc"
+              maxlength="3"
+              pattern="\d*"
+              required
+            />
+            <label for="cvc">CVC</label>
+          </div>
+        </div>
+
+        <button type="submit" class="submit">Checkout</button>
+      </form>
+    </div>
+
+    <script src="/Js/checkout.js"></script>
+    <script>
+      function showPaymentForm(paymentType) {
+        document.getElementById("cash").style.display = "none";
+        document.getElementById("visa-content").style.display = "none";
+        if (paymentType === "cash") {
+          document.getElementById("cash").style.display = "block";
+        } else if (paymentType === "visa-content") {
+          document.getElementById("visa-content").style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>

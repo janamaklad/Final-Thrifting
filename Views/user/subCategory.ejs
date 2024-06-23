@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/products.css" />
+    <title>Men Products</title>
+  </head>
+  <body>
+    <%- include("../components/UserNavBar.ejs")%>
+    <div id="products-container">
+
+      <% if (products && products.length > 0){%>
+      <% products.forEach(product => { %>
+        <div class="product"
+          data-category="<%= product.category %>"
+          onclick="showModal('<%= product.images[0] %>', [<%= product.images.map(image => `'${image}'`).join(', ') %>], '<%= product.details %>', '<%= product.price %> LE', '<%= product.brand %>','<%= product.size %>')"
+        >
+          <img src="<%= product.images[0] %>" />
+          <div class="product-details">
+            <h2><%= product.details %></h2>
+            <p>Price: <%= product.price %> LE</p>
+            <p>Brand: <%= product.brand %></p>
+            <p>Size: <%= product.size %></p>
+            <button>Add To Cart</button>
+          </div>
+        </div>
+      <% }); %>
+      <% }else{%>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <p>no products found</p>
+      <% }%>
+      
+
+
+
+    </div>
+
+    <div id="modal" class="modal" onclick="closeModal()">
+      <div class="modal-content" onclick="event.stopPropagation()">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-images">
+          <img id="modal-img" src="" alt="" />
+          <div class="thumbnails" id="thumbnails"></div>
+        </div>
+        <div class="product-info">
+          <h2 id="modal-title"></h2>
+          <p id="modal-price"></p>
+          <p id="modal-brand"></p>
+          <p id="modal-size"></p>
+          <button href="cart.html"><button>Add To Cart</button>
+        </div>
+        <div class="arrow-container">
+          <button class="prev" onclick="changeImage(-1)">&#10094;</button>
+          <button class="next" onclick="changeImage(1)">&#10095;</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/Js/products.js"></script>
+  </body>
+</html>
