@@ -9,7 +9,7 @@
 <body>
     <h1>Create Listing</h1>
 
-    <form id="sellForm" action="/add-product" method="POST" enctype="multipart/form-data">
+    <form id="sellForm" action="/admin/addProduct" method="POST" enctype="multipart/form-data" >
         <label for="category">Category:</label>
         <select id="category" name="category" required>
             <option value="">Select Category</option>
@@ -59,9 +59,81 @@
         <label for="image2">Image 2:</label>
         <input type="file" id="image2" name="image2" accept="image/*" required>
 
+        <input type="hidden" id="subcategory" name="subcategory" value=""> 
+
+
         <button type="submit">Submit</button>
     </form>
 
     <script src="/Js/Sell.js"></script>
+    <script>
+        document.getElementById("sellForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+    
+        
+    
+        const category = document.getElementById("category").value;
+        const subcategory = document.getElementById("subCategory").value;
+    
+        
+        document.getElementById("subcategory").value = subcategory;
+    
+        
+        this.submit();
+    });
+
+
+    
+  document.getElementById("sellForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const form = new FormData(this);
+    const category = form.get("category");
+
+    fetch("/admin/sell", {
+      method: "POST",
+      body: form,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.err) {
+          // Handle error response
+          alert("Error: " + data.err);
+        } else {
+          // Handle success response
+          alert("Product added successfully");
+          // Redirect to the specific subcategory page based on the selected category
+          switch (category) {
+            case "women":
+              window.location.href = `/admin/<%=user._id%>/AdminWomen`;
+              break;
+            case "men":
+              window.location.href = `/admin/<%=user._id%>/AdminMen`;
+              break;
+            case "girls":
+              window.location.href = `/admin/<%=user._id%>/AdminGirls`;
+              break;
+            case "boys":
+              window.location.href = `/admin/<%=user._id%>/AdminBoys`;
+              break;
+            case "baby":
+              window.location.href = `/admin/<%=user._id%>/AdminBaby`;
+              break;
+            case "home":
+              window.location.href = `/admin/<%=user._id%>/AdminHome`;
+              break;
+            default:
+              break;
+          }
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("An error occurred. Please try again.");
+      });
+  });
+
+
+    </script>
 </body>
 </html>

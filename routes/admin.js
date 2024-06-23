@@ -1,7 +1,11 @@
 import express from "express";
 import User from "../models/user.js";
+import { fillForm_get, addProduct_post } from "../controllers/admin.js";
 
 const router = express.Router();
+
+router.post("/Sell", fillForm_get);
+router.post("/addProduct", addProduct_post );
 
 router.get("/:id", async (req, res) => {
   res.render("admin", {

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Products</title>
+    <link rel="stylesheet" href="/Css/viewusers.css"> <!-- Adjust the path as per your project structure -->
+</head>
+<body>
+    <div class="products">
+        <% products.forEach(product => { %>
+            <div class="product">
+                <img src="/Images/<%= product.image %>" alt="Product img"> <!-- Replace with actual image path from database -->
+                <div class="product-details">
+                    <h4><%= product.category %></h4>
+                    <p>Price: <%= product.price %> LE</p>
+                    <p>Brand: <%= product.brand %></p>
+                    <p>Size: <%= product.size %></p>
+                    <p>Status: <%= product.status %></p>
+                    <p>Details: <%= product.details %></p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Products</title>
+    <link rel="stylesheet" href="/Css/viewproducts.css"> <!-- Adjust the path as per your project structure -->
+</head>
+<body>
+    
+</body>
+</html>
