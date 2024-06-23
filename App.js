@@ -3,6 +3,13 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import routes from "./routes/routes.js";
+//Routes
+import adminRoutes from "./routes/admin.js";
+import userRoutes from "./routes/user.js";
+import productRoutes from "./routes/product.js";
+//middlewares
+import adminAuth from "./middleware/adminAuth.js";
+
 dotenv.config();
 
 const app = express();
@@ -12,6 +19,10 @@ app.use(express.json()); // to read req.body
 app.use(express.urlencoded({ extended: true })); // to read req.body
 app.use(cookieParser());
 app.set("view engine", "ejs"); // to set view engine to ejs
+
+app.use("/admin", adminAuth, adminRoutes);
+app.use("/user", userRoutes);
+app.use("/product", productRoutes);
 
 app.use(routes);
 
