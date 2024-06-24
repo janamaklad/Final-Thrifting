@@ -53,3 +53,52 @@ nav {
   .nav-buttons button:hover {
     background-color: grey; /* Darker Green */
   }
+  
+  /* New styles for user display */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+  }
+  
+  .user-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .user-card h3 {
+    margin-top: 0;
+    text-align: center;
+  }
+  
+  .user-card p {
+    margin: 10px 0;
+  }
+  
+  .user-card button {
+    background-color: rgb(18, 125, 107); /* Green */
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: 5px 0;
+  }
+  
+  .user-card button:hover {
+    background-color: grey; /* Darker Green */
+  }
+  
+  .table-header {
+    display: none;
+  }
