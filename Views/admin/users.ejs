@@ -13,35 +13,18 @@
   <body>
     <% include("../components/AdminNavBar.ejs") %>
     <div class="container">
-      <table>
-        <thead>
-          <tr>
-            <th>Role</th>
-            <th>First Name</th> 
-            <th>Last Name</th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% users.forEach(user => { %>
-          <tr>
-            <td><%= user.role %></td>
-            <td><%= user.firstName %></td>
-            <td><%= user.lastName %></td>
-            <td><%= user.username %></td>
-            <td><%= user.email %></td>
-            <td><%= user.phoneNumber %></td>
-            <td>
-              <button>Edit</button>
-              <button data-id="<%= user._id %>" class="delete-button">Delete</button>
-            </td>
-          </tr>
-          <% }) %>
-        </tbody>
-      </table>
+      <% users.forEach(user => { %>
+      <div class="user-card">
+        <h3><%= user.role %></h3>
+        <p><strong>First Name:</strong> <%= user.firstName %></p>
+        <p><strong>Last Name:</strong> <%= user.lastName %></p>
+        <p><strong>Username:</strong> <%= user.username %></p>
+        <p><strong>Email:</strong> <%= user.email %></p>
+        <p><strong>Phone Number:</strong> <%= user.phoneNumber %></p>
+        <button>Edit</button>
+        <button data-id="<%= user._id %>" class="delete-button">Delete</button>
+      </div>
+      <% }) %>
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
