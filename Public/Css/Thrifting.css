@@ -171,7 +171,6 @@ body {
     color:rgb(56, 159, 190);
 }
 
-
 .sell-now {
     position: relative;
     text-align: center;
@@ -179,18 +178,18 @@ body {
   }
   
   .sell-now img {
-    max-width: 75%; /* Ensure the image doesn't exceed its container's width */
+    max-width: 100%; /* Ensure the image doesn't exceed its container's width */
     height: auto;
     display: block; /* Added */
     margin: auto; /* Center the image */
-    margin-top: 80px;
     z-index: 0; /* Ensure the image is behind the button */
+    transition: transform 0.3s ease; /* Added transition for hover effect */
   }
   
   .sell-button {
     position: absolute;
     bottom: 20px; /* Adjust as needed */
-    left: 80%;
+    left: 72%;
     transform: translateX(-50%);
     background-color: #2e7235;
     color: #fff;
@@ -199,17 +198,22 @@ body {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s;
-    z-index: 1; /* Ensure the button is on top */
-    cursor: pointer; /* Add cursor pointer */
+    z-index: 1; 
+    cursor: pointer; 
+    border: none; 
+    width:200px;
+    height:50px;
   }
   
   .sell-button:hover {
     background-color: #98c1a9;
   }
-  .sell-now img:hover {
-    transform: scale(1.005); /* Increase scale on hover */
+  
+  .sell-now:hover img {
+    transform: scale(1.05); 
   }
-
+  
+  
   @media (max-width: 768px) {
     .navbar {
         padding: 10px;

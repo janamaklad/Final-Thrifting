@@ -36,7 +36,7 @@ const home_get = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     if (!user) return res.status(404).json({ message: "User not found" });
-    res.render("user/shop", {
+    res.render("index", {
       title: "shop",
       user: await User.findById(req.params.id),
     });
@@ -122,24 +122,19 @@ const sell_get = async (req, res) => {
   }
 };
 
-const updateUser_put = async (req, res) => {
-  const { id } = req.params;
-  const { firstName, lastName, username, email, phoneNumber, password, role } =
-    req.body;
+// const updateUser_put = async (req, res) => {
+//   const { id } = req.params;
+//   try {
+//     const updatedUser = await User.findByIdAndUpdate(id, req.body, { new: true });
+//     if (!updatedUser) {
+//       return res.status(404).json({ message: 'User not found' });
+//     }
+//     res.status(200).json(updatedUser);
+//   } catch (error) {
+//     res.status(500).json({ message: error.message });
+//   }
+// };
 
-  try {
-    const updatedUser = await User.findByIdAndUpdate(
-      id,
-      { firstName, lastName, username, email, phoneNumber, password, role },
-      { new: true, runValidators: true }
-    );
-    if (!updatedUser)
-      return res.status(404).json({ message: "User not found" });
-    res.status(200).json(updatedUser);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
 
 const deleteUser_delete = async (req, res) => {
   try {
@@ -156,7 +151,6 @@ export {
   createUser_post,
   getUsers_get,
   home_get,
-  updateUser_put,
   cart_get,
   subCategory_get,
   profile_get,
