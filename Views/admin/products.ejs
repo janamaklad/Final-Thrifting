@@ -9,51 +9,39 @@
   </head>
   <body>
     <%- include("../components/AdminNavBar.ejs") %>
-    <div class="container">
-      <table>
-        <thead>
-          <tr>
-            <!-- <th>Image</th> -->
-            <th>Category</th>
-            <th>Sub-Category</th>
-            <th>Size</th>
-            <th>Status</th>
-            <th>Brand</th>
-            <th>Price</th>
-            <th>Details</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% products.forEach(product => { %>
-          <tr>
-            <!-- ////////////////////// -->
-            <!-- <td><img src="<%= product.images[0] %>" alt=""></td>  -->
-            <td><%= product.category %></td>
-            <td><%= product.subCategory %></td>
-            <td><%= product.size %></td>
-            <td><%= product.status %></td>
-            <td><%= product.brand %></td>
-            <td><%= product.price %></td>
-            <td><%= product.details %></td>
-            <td><button>edit</button><button data-id="<%= product._id %>" class="delete-button">delete</button></td>
-          </tr>
-          <% }) %>
-        </tbody>
-      </table>
+    <div class="product-container">
+      <% products.forEach(product => { %>
+      <div class="product-card">
+        <img src="<%= product.images && product.images[0] %>" alt="Product Image" />
+        <div class="product-info">
+          <h3>Category: <%= product.category %></h3>
+          <p>Sub-Category: <%= product.subCategory %></p>
+          <p>Size: <%= product.size %></p>
+          <p>Status: <%= product.status %></p>
+          <p>Brand: <%= product.brand %></p>
+          <p>Price: <%= product.price %></p>
+          <p>Details: <%= product.details %></p>
+          <div class="actions">
+            <button>Edit</button>
+            <button data-id="<%= product._id %>" class="delete-button">Delete</button>
+          </div>
+        </div>
+      </div>
+      <% }) %>
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll(".delete-button").forEach((button) => {
           button.addEventListener("click", async () => {
             const productId = button.getAttribute("data-id");
-
+  
             const response = await fetch(`/product/${productId}`, {
               method: "DELETE",
             });
-
+  
             if (response.ok) {
-              alert("product deleted successfully");
+              alert("Product deleted successfully");
+              location.reload(); // Refresh the page to reflect the changes
             } else {
               alert("Failed to delete product");
             }
@@ -62,4 +50,4 @@
       });
     </script>
   </body>
-</html>
+  </html>
