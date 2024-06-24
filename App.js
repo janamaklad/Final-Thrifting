@@ -3,11 +3,11 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import routes from "./routes/routes.js";
-//Routes
+
 import adminRoutes from "./routes/admin.js";
 import userRoutes from "./routes/user.js";
 import productRoutes from "./routes/product.js";
-//middlewares
+
 import adminAuth from "./middleware/adminAuth.js";
 
 dotenv.config();

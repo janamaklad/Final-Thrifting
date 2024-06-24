@@ -185,3 +185,32 @@ p.story{
     margin-left:93%;
     margin-top:6%;
 }
+
+@media (max-width: 768px) {
+    .container1, .container2 {
+        width: 95%; 
+        padding: 10px; 
+    }
+
+    .text1, .text2 {
+        width: 100%; 
+        margin: 3% 0; 
+
+    .image, .image2 {
+        width: 100%; 
+        margin-bottom: 3%; 
+    }
+
+    h2.sustainability, .clothing, h3.title {
+        font-size: 1.3em; 
+    }
+
+    p.resell, .text2, p.story {
+        font-size: 0.9em; 
+    }
+
+    .circle, .circle2, .circle4, .circle5, .line1, .line3 {
+        display: none; 
+    }
+}
+}
