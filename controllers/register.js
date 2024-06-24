@@ -72,7 +72,7 @@ export const signup_post = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // Create new user
+    
     const newUser = new User({
       firstName,
       lastName,
@@ -84,7 +84,7 @@ export const signup_post = async (req, res) => {
 
     await newUser.save();
 
-    // Respond with success
+    
     return res.json({
       message: "Registration successful!",
     });
