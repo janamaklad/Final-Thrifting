@@ -2,22 +2,11 @@ document.getElementById('checkout-form').addEventListener('submit', function (ev
     event.preventDefault();
     let isValid = true;
 
-    const email = document.getElementById('email');
-    const emailError = document.getElementById('email-error');
-    const phone = document.getElementById('phone');
-    const phoneError = document.getElementById('phone-error');
-    const fname = document.getElementById('fname');
-    const fnameError = document.getElementById('fname-error');
-    const lname = document.getElementById('lname');
-    const lnameError = document.getElementById('lname-error');
-    const address = document.getElementById('address');
-    const addressError = document.getElementById('address-error');
-    const city = document.getElementById('city');
-    const cityError = document.getElementById('city-error');
-    const government = document.getElementById('government');
-    const governmentError = document.getElementById('government-error');
-    const country = document.getElementById('country');
-    const countryError = document.getElementById('country-error');
+    var country = document.getElementById('country');
+        var address = document.getElementById('address');
+        var city = document.getElementById('city');
+    
+        
     const paymentOptions = document.getElementsByName('payment');
     const cardNumber = document.getElementById('cardNumber');
     const cardNumberError = document.getElementById('cardNumber-error');
@@ -43,110 +32,26 @@ document.getElementById('checkout-form').addEventListener('submit', function (ev
     cvcError.textContent = '';
 
 
-
-
-
-
-
-    function validateForm() {
-        // Clear any previous error messages
-        const errorSpans = document.querySelectorAll('.error');
-        errorSpans.forEach(span => span.textContent = '');
-      
-        // Get references to form fields
-        const email = document.getElementById('email');
-        const fname = document.getElementById('fname');
-        const lname = document.getElementById('lname');
-        const address = document.getElementById('address');
-        const apartment = document.getElementById('apartment'); // Assuming it's optional
-        const city = document.getElementById('city');
-        const governement = document.getElementById('governement');
-        const phone = document.getElementById('phone');
-      
-        // Validation logic
-        let isValid = true;
-      
-        // Email validation (basic check for @ symbol and some characters)
-        if (!email.value.includes('@') || email.value.length < 5) {
-          document.getElementById('email-error').textContent = 'Please enter a valid email address (e.g., johndoe@example.com).';
-          isValid = false;
-        }
-      
-        // Check if required fields are empty
-        if (!fname.value || !lname.value || !address.value || !city.value ||
-            !governement.value || !phone.value) {
-          document.getElementById('fname-error').textContent = 'Please fill in all required fields.';
-          isValid = false;
-        }
-      
-        // Optional validation for apartment (can be removed if not needed)
-        if (apartment.value && apartment.value.length === 0) {
-          document.getElementById('apartment-error').textContent = 'Please enter an apartment number (if applicable).';
-          // isValid = false; // Uncomment if you want apartment to be mandatory
-        }
-      
-        // Phone number validation (basic check for digits only)
-        if (!/^\d+$/.test(phone.value)) {
-          document.getElementById('phone-error').textContent = 'Invalid phone number. Please enter digits only.';
-          isValid = false;
-        }
-      
-        return isValid; // Prevent form submission if validation fails
+    if (!country.checkValidity()) {
+        alert('Please select a country.');
+        event.preventDefault();
+        return false;
       }
-
-    // Validate email
-    if (!email.value) {
-        emailError.textContent = 'E-mail is required.';
-        isValid = false;
-    } else if (!/^\S+@\S+\.\S+$/.test(email.value)) {
-        emailError.textContent = 'Invalid e-mail format.';
-        isValid = false;
-    }
-
-    // Validate phone
-    if (!phone.value) {
-        phoneError.textContent = 'Phone number is required.';
-        isValid = false;
-    } else if (!/^\d+$/.test(phone.value)) {
-        phoneError.textContent = 'Phone number must be numeric.';
-        isValid = false;
-    }
-
-    // Validate first name
-    if (!fname.value) {
-        fnameError.textContent = 'First name is required.';
-        isValid = false;
-    }
-
-    // Validate last name
-    if (!lname.value) {
-        lnameError.textContent = 'Last name is required.';
-        isValid = false;
-    }
-
-    // Validate address
-    if (!address.value) {
-        addressError.textContent = 'Address is required.';
-        isValid = false;
-    }
-
-    // Validate city
-    if (!city.value) {
-        cityError.textContent = 'City is required.';
-        isValid = false;
-    }
-
-    // Validate government
-    if (!government.value) {
-        governmentError.textContent = 'Government is required.';
-        isValid = false;
-    }
-
-    // Validate country
-    if (!country.value) {
-        countryError.textContent = 'Country is required.';
-        isValid = false;
-    }
+  
+      if (!address.checkValidity()) {
+        alert('Please enter an address.');
+        event.preventDefault();
+        return false;
+      }
+  
+      if (!city.checkValidity()) {
+        alert('Please enter a city.');
+        event.preventDefault();
+        return false;
+      }
+  
+      // If all validations pass, you can proceed with form submission
+      alert('Form submitted successfully!');
 
     // Validate payment method
     let paymentSelected = false;
