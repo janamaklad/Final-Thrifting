@@ -13,11 +13,21 @@ const validateSellForm = [
         if (!req.files || !req.files['image1']) {
             throw new Error('Image 1 is required');
         }
+            const file = req.files['image1'][0];
+            const validMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            if (!validMimeTypes.includes(file.mimetype)) {
+                throw new Error('Image 1 must be a valid image file (jpg, png, gif)');
+            }
         return true;
-    }),
+        }),
     body('image2').custom((value, { req }) => {
         if (!req.files || !req.files['image2']) {
             throw new Error('Image 2 is required');
+        }
+        const file = req.files['image2'][0];
+        const validMimeTypes = ['image/jpeg', 'image/png', 'image/gif'];
+        if (!validMimeTypes.includes(file.mimetype)) {
+            throw new Error('Image 2 must be a valid image file (jpg, png, gif)');
         }
         return true;
     })

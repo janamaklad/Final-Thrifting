@@ -8,7 +8,7 @@ const createProduct_post = async (req, res) => {
     await product.save();
     res.status(201).send(product);
   } catch (error) {
-    res.status(400).send(error);
+    res.status(400).send(error); 
   }
 };
 
