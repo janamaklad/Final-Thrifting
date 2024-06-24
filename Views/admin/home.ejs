@@ -6,16 +6,99 @@
     <link rel="stylesheet" href="/css/dashboard.css" />
     <link rel="icon" href="/Images/favicon.png" type="image/png" />
     <title>Second Chance</title>
+    <style>
+    body {
+      margin: 0;
+      padding: 0;
+      padding-bottom: 50px;
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      border-radius: 5px;
+  }
+  nav {
+    background-color: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        position: relative;
+        z-index: 2;
+      }
+      
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 40px;
+        text-align: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+      }
+      
+      nav ul li a {
+        text-decoration: none;
+      }
+      
+      .nav-buttons {
+        display: flex;
+        gap: 10px;
+      }
+      
+      .nav-buttons button {
+        background-color: rgb(18, 125, 107); /* Green */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+      
+      .nav-buttons button:hover {
+        background-color: grey; /* Darker Green */
+      }
+
+ 
+      .background-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+        width: 120vw;
+        height: 100%;
+     
+  }
+  </style>
   </head>
-  <body>
-    <%- include("../components/AdminNavBar.ejs") %>
-    <div class="buttons-container">
-      <button onclick="location.href='/admin/<%=user._id%>/user'">
-        Users
-      </button>
-      <button onclick="location.href='/admin/<%=user._id%>/product'">
-        Products
-      </button>
-    </div>
+  <body> 
+    <video autoplay muted loop class="background-video">
+      <source src="/Videos/adminVid2.mp4" type="video/mp4">
+    </video>
+    <nav>
+      <a href="/admin/<%= user._id %>" class="logo">
+        <img src="/Images/logo.jpg" width="125px" />
+      </a>
+      <% if (nav !== false) { %>
+    
+      <ul>
+        <li><a href="/admin/<%= user._id %>/<%= nav %>"> View <%= nav %> </a></li>
+        <li>
+          <a href="/admin/<%= user._id %>/add/<%= nav %>"> Add <%= nav %> </a>
+        </li>
+        <li><a href="/logout"> Log out</a></li>
+      </ul>
+      <% } %>
+      <div class="nav-buttons">
+        <button onclick="location.href='/admin/<%=user._id%>/user'">Users</button>
+        <button onclick="location.href='/admin/<%=user._id%>/product'">Products</button>
+      </div>
+    </nav>
   </body>
 </html>
