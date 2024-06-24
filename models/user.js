@@ -30,7 +30,7 @@ const userSchema = new Schema({
   phoneNumber: {
     type: String,
     required: [true, "Phone number is required"],
-    match: [/^\d{11}$/, "Please enter a valid 10-digit phone number"],
+    match: [/^\d{11}$/, "Please enter a valid 11-digit phone number"],
   },
   password: {
     type: String,
