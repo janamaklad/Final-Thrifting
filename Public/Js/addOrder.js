@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Get the modal
+    // Get the 
     var modal = document.getElementById("addOrderModal");
 
     // Get the button that opens the modal

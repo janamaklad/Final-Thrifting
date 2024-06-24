@@ -1,152 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>checkout Page</title>
-    <link rel="stylesheet" href="/Css/checkout.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-        </style>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-
-    <div class="image-backgrnd"></div>
-    <div class="blur-overlay"></div>
-
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="/css/checkout.css" />
+  </head>
+  <body>
     <div class="container">
-        <h2>checkout Form</h2>
-        <form id="checkout-form">
-            <form>
-                <div class="contact">
-                    <h3>contact</h3>
-                    <div class="form-group">
-                        <input type="email,number" id="email" name="email" required>
-                        <label for="email">E-mail or phone number*</label>
-                        <span id="email-error" class="error"></span>
-                    </div>
-                </div>
-            </form>
-           <form>
-            <div class="delivery">
-                <h3>delivery</h3>
-                <div class="form-group">
-                    <label for="country">country</label>
-                    <select id="country" name="country">
-                        <option value="">  </option>
-                        <option value="egypt">egypt</option>
-                    </select>
-                    </div>
-                   
-                <div class="form-group">
-                    <input type="text" id="fname" name="fname" required>
-                    <label for="fname">First Name</label>
-                    <span id="fname-error" class="error"></span>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="lname" name="lname" required>
-                    <label for="lname">Last Name</label>
-                    <span id="lname-error" class="error"></span>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="address" name="address" required>
-                    <label for="address">address</label>
-                    <span id="address-error" class="error"></span>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="apartment" name="apartment" required>
-                    <label for="apartment">apartment,suite,etc.(optional)</label>
-                    <span id="apartment-error" class="error"></span>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="city" name="city" required>
-                    <label for="city">city</label>
-                    <span id="city-error" class="error"></span>
-                </div>
-                <div class="form-group">
-                    <input type="text" id="governement" name="governement" required>
-                    <label for="governement">governement</label>
-                    <span id="governement-error" class="error"></span>
-                </div>
-                
-              <div class="form-group">
-                    <input type="text" id="phone" name="phone" required>
-                    <label for="phone">phone</label>
-                    <span id="phone-error" class="error"></span>
-                </div>
-               
-                <form>
-                    <label for="info" class="checkbox-label">
-                        <input type="checkbox" id="info" name="info" value="info">
-                        save this information for next time
-                    </label>
-                  </form>
-            </div>
-            <div id="payment-options">
-                <h3>Payment Method</h3>
-                <div class="form-group">
-                    <input type="radio" name="payment" id="cash-radio" onclick="showPaymentForm('cash')">
-                    <label for="cash-radio">Cash</label>
-                </div>
-                <div class="form-group">
-                    <input type="radio" name="payment" id="visa-radio" onclick="showPaymentForm('visa-content')">
-                    <label for="visa-radio">Visa</label>
-                </div>
-            </div>
+      <h2>Checkout Form</h2>
+      <form id="checkout-form">
+        <div class="delivery">
+          <h3>Delivery</h3>
+          <div class="form-group">
+            <label for="country">Country</label>
+            <select id="country" name="country">
+              <option value="egypt">Egypt</option>
+            </select>
+          </div>
+          <br />
+          <div class="form-group">
+            <input type="text" id="address" name="address" required />
+            <label for="address">Address</label>
+          </div>
+          <br />
+          <div class="form-group">
+            <input type="text" id="apartment" name="apartment" />
+            <label for="apartment">Apartment, suite, etc. (optional)</label>
+          </div>
+          <br />
+          <div class="form-group">
+            <input type="text" id="city" name="city" required />
+            <label for="city">City</label>
+          </div>
+        </div>
+        <div id="payment-options">
+          <h3>Payment Method</h3>
+          <div class="form-group">
+            <input
+              type="radio"
+              name="payment"
+              id="cash-radio"
+              onclick="showPaymentForm('cash')"
+            />
+            <label for="cash-radio">Cash</label>
+          </div>
+          <div class="form-group">
+            <input
+              type="radio"
+              name="payment"
+              id="visa-radio"
+              onclick="showPaymentForm('visa-content')"
+            />
+            <label for="visa-radio">Visa</label>
+          </div>
+        </div>
 
-            <div id="cash" class="payment-content" style="display: none;">
-                <p>Please have the exact amount ready at delivery.</p>
-            </div>
+        <div id="cash" class="payment-content" style="display: none">
+          <p>Please have the exact amount ready at delivery.</p>
+        </div>
 
-            <div id="visa-content" class="payment-content" style="display: none;">
-                <div class="form-header">
-                    <img src="/Images/visaCard.jpeg" class="visaCard" alt="Visa Card">
-                </div>
-                <form id="payment-form" onsubmit="return validateForm()">
-                    <div class="form-group">
-                        <input type="text" id="cardNumber" placeholder="Card Number" name="cardNumber" maxlength="16" size="16" required>
-                        <label for="cardNumber">Card Number</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="fullName" placeholder="Full Name" name="fullName" required>
-                        <label for="fullName">Full Name</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="expiration" name="expiration" placeholder="MM / YY" maxlength="5" size="5" required>
-                        <label for="expiration">Expiration Date</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="cvc" placeholder="CVC" name="cvc" maxlength="3" pattern="\d*" required>
-                        <label for="cvc">CVC</label>
-                    </div>
-                    <button type="submit" class="sellButton">Submit</button>
-                </form>
-            </div>
+        <div id="visa-content" class="payment-content" style="display: none">
+          <div class="form-header">
+            <img src="/Images/visaCard.jpeg" class="visaCard" alt="Visa Card" />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="cardNumber"
+              placeholder="Card Number"
+              name="cardNumber"
+              maxlength="16"
+              size="16"
+              required
+            />
+            <label for="cardNumber">Card Number</label>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="fullName"
+              placeholder="Full Name"
+              name="fullName"
+              required
+            />
+            <label for="fullName">Full Name</label>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="expiration"
+              name="expiration"
+              placeholder="MM / YY"
+              maxlength="5"
+              size="5"
+              required
+            />
+            <label for="expiration">Expiration Date</label>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="cvc"
+              placeholder="CVC"
+              name="cvc"
+              maxlength="3"
+              pattern="\d*"
+              required
+            />
+            <label for="cvc">CVC</label>
+          </div>
+        </div>
 
-            <a href="/Thrifting"><button class="submit">Checkout</button></a>
-        </form>
+        <button type="submit" class="submit">Checkout</button>
+      </form>
     </div>
+
     <script src="/Js/checkout.js"></script>
     <script>
-        function showPaymentForm(paymentType) {
-            document.getElementById('cash').style.display = 'none';
-            document.getElementById('visa-content').style.display = 'none';
-            if (paymentType === 'cash') {
-                document.getElementById('cash').style.display = 'block';
-            } else if (paymentType === 'visa-content') {
-                document.getElementById('visa-content').style.display = 'block';
-            }
+      function showPaymentForm(paymentType) {
+        document.getElementById("cash").style.display = "none";
+        document.getElementById("visa-content").style.display = "none";
+        if (paymentType === "cash") {
+          document.getElementById("cash").style.display = "block";
+        } else if (paymentType === "visa-content") {
+          document.getElementById("visa-content").style.display = "block";
         }
+      }
     </script>
-         
-
-           </form> 
-        </form>
-    </div>
-    
-    <script src="/Js/checkout.js"></script>
-    <script src="/Js/profile.js"></script>
-</body>
+  </body>
 </html>
