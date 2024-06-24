@@ -8,7 +8,7 @@
     <title>Second Chance</title>
   </head>
   <body>
-    <%- include("../components/AdminNavBar.ejs") %>
+    <% include("../components/AdminNavBar.ejs") %>
     <div class="container">
       <table>
         <thead>
@@ -31,11 +31,39 @@
             <td><%= user.username %></td>
             <td><%= user.email %></td>
             <td><%= user.phoneNumber %></td>
-            <td><button>edite</button><button>delete</button></td>
+            <td>
+              <button>Edit</button>
+              <button data-id="<%= user._id %>" class="delete-button">Delete</button>
+            </td>
           </tr>
           <% }) %>
         </tbody>
       </table>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".delete-button").forEach((button) => {
+          button.addEventListener("click", async () => {
+            const userId = button.getAttribute("data-id");
+
+            try {
+              const response = await fetch(`/user/${userId}`, {
+                method: "DELETE",
+              });
+
+              if (!response.ok) {
+                throw new Error("Failed to delete user");
+              }
+
+              alert("User deleted successfully");
+              // Optionally, refresh the page or update the UI after deletion
+            } catch (error) {
+              console.error("Error deleting user:", error.message);
+              alert("Failed to delete user");
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
