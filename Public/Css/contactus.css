@@ -66,3 +66,17 @@ input[type=text], select, textarea {
     background-color: #0056b3;
 }
 
+/* Style for larger screens */
+@media screen and (min-width: 768px) {
+    /* Adjust width and margin for larger screens */
+    input[type=text], select, textarea {
+        width: 50%; /* Adjust width as needed */
+        margin-top: 10px; /* Larger top margin */
+        margin-bottom: 20px; /* Larger bottom margin */
+    }
+
+    /* Adjust submit button padding */
+    #submit-btn {
+        padding: 12px 24px; /* Adjust padding as needed */
+    }
+}
