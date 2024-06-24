@@ -13,6 +13,7 @@
   <body>
     <% include("../components/AdminNavBar.ejs") %>
     <div class="container">
+
       <% users.forEach(user => { %>
       <div class="user-card">
         <h3><%= user.role %></h3>
@@ -21,10 +22,33 @@
         <p><strong>Username:</strong> <%= user.username %></p>
         <p><strong>Email:</strong> <%= user.email %></p>
         <p><strong>Phone Number:</strong> <%= user.phoneNumber %></p>
-        <button>Edit</button>
+        <button data-id="<%= user._id %>" class="edit-button">Edit</button>
         <button data-id="<%= user._id %>" class="delete-button">Delete</button>
       </div>
       <% }) %>
+
+    
+    </div>
+
+    <div id="editUserModal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Edit User</h2>
+        <form id="editUserForm">
+          <input type="hidden" id="editUserId" name="id" />
+          <label for="editFirstName">First Name:</label>
+          <input type="text" id="editFirstName" name="firstName" required /><br />
+          <label for="editLastName">Last Name:</label>
+          <input type="text" id="editLastName" name="lastName" required /><br />
+          <label for="editUsername">Username:</label>
+          <input type="text" id="editUsername" name="username" required /><br />
+          <label for="editEmail">Email:</label>
+          <input type="email" id="editEmail" name="email" required /><br />
+          <label for="editPhoneNumber">Phone Number:</label>
+          <input type="tel" id="editPhoneNumber" name="phoneNumber" required /><br />
+          <button type="submit">Save Changes</button>
+        </form>
+      </div>
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -50,6 +74,75 @@
           });
         });
       });
+      
+   
+      document.querySelectorAll(".edit-button").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const userId = button.getAttribute("data-id");
+
+          try {
+            const response = await fetch(`/user/${userId}`);
+            if (!response.ok) {
+              throw new Error("Failed to fetch user");
+            }
+
+            const user = await response.json();
+            populateEditForm(user); // Call function to populate edit form
+          } catch (error) {
+            console.error("Error fetching user:", error.message);
+            alert("Failed to fetch user data");
+          }
+        });
+      });
+    
+
+    function populateEditForm(user) {
+      document.getElementById('editUserId').value = user._id;
+      document.getElementById('editFirstName').value = user.firstName;
+      document.getElementById('editLastName').value = user.lastName;
+      document.getElementById('editUsername').value = user.username;
+      document.getElementById('editEmail').value = user.email;
+      document.getElementById('editPhoneNumber').value = user.phoneNumber;
+
+      document.getElementById('editUserModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('editUserModal').style.display = 'none';
+    }
+
+    document.getElementById('editUserForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const userId = document.getElementById('editUserId').value;
+
+      try {
+        const response = await fetch(`/user/${userId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            firstName: document.getElementById('editFirstName').value,
+            lastName: document.getElementById('editLastName').value,
+            username: document.getElementById('editUsername').value,
+            email: document.getElementById('editEmail').value,
+            phoneNumber: document.getElementById('editPhoneNumber').value
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to update user');
+        }
+
+        alert('User updated successfully');
+        closeModal(); // Close modal after successful update
+        // Optionally, refresh the page or update the UI after update
+      } catch (error) {
+        console.error('Error updating user:', error.message);
+        alert('Failed to update user');
+      }
+    });
+    
     </script>
   </body>
 </html>

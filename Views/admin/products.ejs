@@ -9,45 +9,160 @@
   </head>
   <body>
     <%- include("../components/AdminNavBar.ejs") %>
-    <div class="product-container">
-      <% products.forEach(product => { %>
-      <div class="product-card">
-        <img src="<%= product.images && product.images[0] %>" alt="Product Image" />
-        <div class="product-info">
-          <h3>Category: <%= product.category %></h3>
-          <p>Sub-Category: <%= product.subCategory %></p>
-          <p>Size: <%= product.size %></p>
-          <p>Status: <%= product.status %></p>
-          <p>Brand: <%= product.brand %></p>
-          <p>Price: <%= product.price %></p>
-          <p>Details: <%= product.details %></p>
-          <div class="actions">
-            <button>Edit</button>
-            <button data-id="<%= product._id %>" class="delete-button">Delete</button>
-          </div>
+  <div class="product-container">
+    <% products.forEach(product => { %>
+    <div class="product-card">
+      <img src="<%= product.images && product.images[0] %>" alt="Product Image" />
+      <div class="product-info">
+        <h3>Category: <%= product.category %></h3>
+        <p>Sub-Category: <%= product.subCategory %></p>
+        <p>Size: <%= product.size %></p>
+        <p>Status: <%= product.status %></p>
+        <p>Brand: <%= product.brand %></p>
+        <p>Price: <%= product.price %></p>
+        <p>Details: <%= product.details %></p>
+        <div class="actions">
+          <button class="edit-button" data-id="<%= product._id %>">Edit</button>
+          <button data-id="<%= product._id %>" class="delete-button">Delete</button>
         </div>
       </div>
-      <% }) %>
     </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll(".delete-button").forEach((button) => {
-          button.addEventListener("click", async () => {
-            const productId = button.getAttribute("data-id");
+    <% }) %>
+  </div>
+
+  <!-- Edit Modal -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <form id="editForm">
+        <input type="hidden" id="productId" name="id">
+        
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+          <option value="">Select Category</option>
+          <option value="women">Women</option>
+          <option value="men">Men</option>
+          <option value="girls">Girls</option>
+          <option value="boys">Boys</option>
+          <option value="baby">Baby</option>
+          <option value="home">Home</option>
+        </select>
+        
+        <label for="subCategory">Subcategory:</label>
+        <select id="subCategory" name="subCategory" required>
+          <option value="">Select Subcategory</option>
+          <option value="topWear">Top Wear</option>
+          <option value="bottomWear">Bottom Wear</option>
+          <option value="dresses">Dresses</option>
+          <option value="outerWear">Outer Wear</option>
+          <option value="sportswear">Sportswear</option>
+          <option value="shoes">Shoes</option>
+          <option value="bags">Bags</option>
+          <option value="accessories">Accessories</option>
+        </select>
+        
+        <label for="size">Size:</label>
+        <input type="text" id="size" name="size">
+        
+        <label for="status">Status:</label>
+        <select id="status" name="status" required>
+          <option value="">Select Status</option>
+          <option value="new">New</option>
+          <option value="used">Used</option>
+        </select>
+        
+        <label for="brand">Brand:</label>
+        <input type="text" id="brand" name="brand">
+        
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price">
+        
+        <label for="details">Details:</label>
+        <input type="text" id="details" name="details">
+        
+        <button type="submit">Save</button>
+      </form>
+    </div>
+  </div>
   
-            const response = await fetch(`/product/${productId}`, {
-              method: "DELETE",
-            });
-  
-            if (response.ok) {
-              alert("Product deleted successfully");
-              location.reload(); // Refresh the page to reflect the changes
-            } else {
-              alert("Failed to delete product");
-            }
-          });
-        });
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const editModal = document.getElementById("editModal");
+    const closeModal = document.querySelector(".modal .close");
+    const editForm = document.getElementById("editForm");
+
+    document.querySelectorAll(".edit-button").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const productId = button.getAttribute("data-id");
+
+        // Fetch product details
+        const response = await fetch(`/product/${productId}`);
+        const product = await response.json();
+
+        // Fill form with product details
+        document.getElementById("productId").value = product._id;
+        document.getElementById("category").value = product.category;
+        document.getElementById("subCategory").value = product.subCategory;
+        document.getElementById("size").value = product.size;
+        document.getElementById("status").value = product.status;
+        document.getElementById("brand").value = product.brand;
+        document.getElementById("price").value = product.price;
+        document.getElementById("details").value = product.details;
+
+        // Show the modal
+        editModal.style.display = "block";
       });
-    </script>
-  </body>
+    });
+
+    closeModal.addEventListener("click", () => {
+      editModal.style.display = "none";
+    });
+
+    window.onclick = (event) => {
+      if (event.target == editModal) {
+        editModal.style.display = "none";
+      }
+    };
+
+    editForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const productId = document.getElementById("productId").value;
+      const formData = new FormData(editForm);
+
+      const response = await fetch(`/product/${productId}`, {
+        method: "PUT",
+        body: JSON.stringify(Object.fromEntries(formData)),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        alert("Product updated successfully");
+        location.reload(); // Refresh the page to reflect changes
+      } else {
+        alert("Failed to update product");
+      }
+    });
+
+    document.querySelectorAll(".delete-button").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const productId = button.getAttribute("data-id");
+
+        const response = await fetch(`/product/${productId}`, {
+          method: "DELETE",
+        });
+
+        if (response.ok) {
+          alert("Product deleted successfully");
+          location.reload(); // Refresh the page to reflect changes
+        } else {
+          alert("Failed to delete product");
+        }
+      });
+    });
+  });
+  </script>
+</body>
   </html>
